@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditActivity" 
+    android:orientation="vertical"
+    style="@style/activity_dark"
+    >
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/edit_titleLabel"
+        	style="@style/text_dark"
+            />
+		<EditText 
+		    android:id="@+id/edit_titleText"
+		    android:layout_width="0dip"
+		    android:layout_height="wrap_content"
+	    	android:layout_weight="1"
+		    android:inputType="text"
+		    android:hint="@string/edit_titleHint"
+		    style="@style/EditText"
+		    />
+		<ImageButton
+           android:id="@+id/edit_doneButton"
+           style="@style/nav_button"
+           android:contentDescription="@string/edit_done"
+           android:src="@drawable/check_icon"
+           />
+	</LinearLayout>
+	
+	<EditText 
+	    android:id="@+id/edit_bodyText"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dip"
+	    
+    	android:layout_weight="1"
+	    android:inputType="textMultiLine"
+        android:singleLine="false"
+        
+        android:gravity="top|left"
+        android:isScrollContainer="true" 
+        android:scrollbars="vertical"
+        
+        android:hint="@string/edit_bodyHint"
+        style="@style/editText_multiLine"
+	    />     
+</LinearLayout>

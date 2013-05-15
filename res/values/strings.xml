@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BasicPad</string>
+    <string name="action_settings">Settings</string>
+    <string name="sync_settings">Sync Settings</string>
+
+    <!-- Main Activity -->
+    <string name="main_recentHeading">Recent Notes:</string>
+    <string name="main_newDesc">New Note</string>
+    <string name="main_newPhotoDesc">New Photo Note</string>
+    <string name="main_searchDesc">Search</string>
+    <string name="main_settingsDesc">Settings</string>
+
+    <!-- Sync Settings Activity -->
+    <string name="title_activity_sync">Sync Settings</string>
+    <string name="sync_usernameLabel">Email Address:</string>
+    <string name="sync_passwordLabel">Password:</string>
+    <string name="sync_optionsLabel">Sync:</string>
+    <string name="sync_deviceNameLabel">Device Name:</string>
+    <string name="sync_radioPhotosLabel">Text and Photos:</string>
+    <string name="sync_textOnlyLabel">Text Only:</string>
+    <string name="sync_checkLabel">Notes will be synced in plain text</string>
+    <string name="sync_checkAgreeLabel">I understand</string>
+    <string name="submit">Submit</string>
+    <string name="required">*Required</string>
+
+    <!-- Edit Activity -->
+    <string name="title_activity_edit">Edit Note</string>
+    <string name="edit_titleHint">Enter Title Here</string>
+    <string name="edit_bodyHint">Note Body. Enter the text for your note here.</string>
+    <string name="edit_titleLabel">Title:</string>
+    <string name="edit_done">Save and close</string>
+    
+
+    <!-- New Photo Activity -->
+    <string name="title_activity_photo">Photo</string>
+    <string name="photo_capture">Capture</string>
+
+    <!-- Search Activity -->
+    <string name="title_activity_search">Search</string>
+    <string name="search_searchHint">Type to Search</string>
+
+    <!-- Settings Activity -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="hello_world">Under Construction.</string>
+    <string name="title_activity_photo_viewer">PhotoViewerActivity</string>
+
+</resources>

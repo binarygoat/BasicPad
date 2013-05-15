@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhotoActivity" 
+    android:orientation="vertical"
+    style="@style/activity_light"
+    >
+	
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+    	android:layout_weight="1"
+        android:src="@drawable/icon_green"
+        android:contentDescription="@string/title_activity_photo"
+        
+		/>
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	
+    	style="@style/nav"
+    	>
+       <ImageButton
+           android:id="@+id/photo_capture"
+           style="@style/nav_button"
+           android:contentDescription="@string/photo_capture"
+           android:src="@drawable/new_photo_icon"           
+           android:layout_centerInParent="true"
+           />
+    </RelativeLayout>
+
+</LinearLayout>

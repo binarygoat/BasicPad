@@ -1,0 +1,112 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
+    </style>
+
+    <style name="activity_light">
+        <item name="android:background">@color/theme_light_back</item>
+    </style>
+
+    <style name="heading_light">
+        <item name="android:textColor">@color/theme_light_fore</item>
+        <item name="android:textSize">@dimen/heading_size</item>
+    </style>
+    
+    <style name="text_light">
+        <item name="android:textColor">@color/theme_light_fore</item>
+        <item name="android:padding">@dimen/nav_horizontal_margin</item>
+    </style>
+    
+    <style name="list_light">
+        <item name="android:textColor">@color/theme_light_fore</item>
+        <item name="android:background">@color/theme_light_back</item>
+        
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+    
+    <style name="activity_dark">
+        <item name="android:background">@color/theme_dark_back</item>
+        
+    </style>
+    
+    <style name="heading_dark">
+        <item name="android:textColor">@color/theme_dark_fore</item>
+        <item name="android:textSize">@dimen/heading_size</item>
+    </style>
+    
+    <style name="text_dark">
+        <item name="android:textColor">@color/theme_dark_fore</item>
+        <item name="android:padding">@dimen/nav_horizontal_margin</item>
+    </style>
+    
+    <style name="list_dark">
+        <item name="android:textColor">@color/theme_dark_fore</item>
+        <item name="android:background">@color/theme_dark_back</item>
+        
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <!-- item name="android:listSelector">@android:color/transparent</item-->
+    </style>
+    
+    <style name="EditText">
+        <item name="android:textColor">@color/theme_light_fore</item>
+        <!-- item name="android:background">@color/theme_light_back</item-->
+        
+        <!-- item name="android:layout_marginBottom">@dimen/nav_vertical_margin</item>
+        <item name="android:padding">@dimen/nav_horizontal_margin</item-->
+    </style>
+    
+    <style name="editText_multiLine">
+        <item name="android:textColor">@color/theme_light_fore</item>
+        <item name="android:background">@color/theme_light_back</item>
+        
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+    </style>
+    
+    <style name="nav">
+        <item name="android:background">@color/theme_dark_back</item>
+        
+        <item name="android:paddingBottom">@dimen/nav_vertical_margin</item>
+	    <item name="android:paddingLeft">@dimen/nav_horizontal_margin</item>
+	    <item name="android:paddingRight">@dimen/nav_horizontal_margin</item>
+	    <item name="android:paddingTop">@dimen/nav_vertical_margin</item>
+    </style>
+    
+    <style name="nav_button">
+        <item name="android:background">@color/theme_dark_back</item>
+        <item name="android:textColor">@color/theme_dark_fore</item>
+        
+        <item name="android:layout_width">@dimen/button_height</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        
+    </style>
+    
+    <style name="button">
+        <!-- item name="android:background">@color/theme_dark_back</item>
+        <item name="android:textColor">@color/theme_dark_fore</item>
+        
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        
+        <item name="android:paddingBottom">@dimen/button_vertical_margin</item>
+	    <item name="android:paddingLeft">@dimen/button_horizontal_margin</item>
+	    <item name="android:paddingRight">@dimen/button_horizontal_margin</item>
+	    <item name="android:paddingTop">@dimen/button_vertical_margin</item -->
+	    
+    </style>
+    
+</resources>

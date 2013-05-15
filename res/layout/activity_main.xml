@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" 
+    android:orientation="vertical"
+    style="@style/activity_light"
+    >
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	style="@style/nav"
+    	>
+    	<TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/main_recentHeading"
+        	style="@style/heading_dark"
+            />
+    	</LinearLayout>
+    <ListView
+        android:id="@+id/main_noteList"
+        android:layout_width="fill_parent"
+    	android:layout_height="0dip"
+    	android:layout_weight="1"
+    	style="@style/text_light"
+    	>
+        
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	style="@style/nav"
+    	>
+       <ImageButton
+           android:id="@+id/main_newNoteButton"
+           style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/new_icon"
+           />
+       
+       <ImageButton
+           android:id="@+id/main_newPhotoButton"
+			style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/new_photo_icon"
+           />
+       
+       <ImageButton
+           android:id="@+id/main_searchButton"
+           style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/search_icon"
+           />
+       
+       <ImageButton
+           android:id="@+id/main_settingsButton"
+           style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/settings_icon"
+           android:layout_gravity="right"
+           />
+    </LinearLayout>
+	
+</LinearLayout>

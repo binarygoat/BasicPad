@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_dark_back">#225599</color>
+    <color name="theme_dark_fore">#ffffff</color>
+    
+    <color name="theme_light_back">#ffffff</color>
+    <color name="theme_light_fore">#222222</color>
+    
+    <color name="footer_back">@color/theme_dark_back</color>
+    <color name="button_back">@color/theme_dark_back</color>
+    <color name="error">#df0000</color>
+</resources>
