@@ -46,46 +46,52 @@ public final class R {
         public static final int settings_icon=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f090016;
+        public static final int action_settings=0x7f09001a;
         public static final int edit_bodyText=0x7f090002;
         public static final int edit_doneButton=0x7f090001;
         public static final int edit_titleText=0x7f090000;
-        public static final int main_newNoteButton=0x7f090004;
-        public static final int main_newPhotoButton=0x7f090005;
-        public static final int main_noteList=0x7f090003;
-        public static final int main_searchButton=0x7f090006;
-        public static final int main_settingsButton=0x7f090007;
-        public static final int photo_doneButton=0x7f090009;
-        public static final int photo_image=0x7f09000a;
-        public static final int photo_titleText=0x7f090008;
-        public static final int search_resultList=0x7f09000c;
-        public static final int search_searchText=0x7f09000b;
-        public static final int settings_optionsList=0x7f09000d;
-        public static final int sync_checkPlainText=0x7f090014;
-        public static final int sync_deviceName=0x7f090010;
-        public static final int sync_email=0x7f09000e;
-        public static final int sync_errorCheckPlainText=0x7f090013;
-        public static final int sync_errorOptions=0x7f090011;
-        public static final int sync_options=0x7f090012;
-        public static final int sync_password=0x7f09000f;
-        public static final int sync_submitButton=0x7f090015;
+        public static final int help_checkIcon=0x7f090006;
+        public static final int help_newNoteIcon=0x7f090003;
+        public static final int help_newPhotoIcon=0x7f090004;
+        public static final int help_searchIcon=0x7f090005;
+        public static final int main_newNoteButton=0x7f090008;
+        public static final int main_newPhotoButton=0x7f090009;
+        public static final int main_noteList=0x7f090007;
+        public static final int main_searchButton=0x7f09000a;
+        public static final int main_settingsButton=0x7f09000b;
+        public static final int photo_doneButton=0x7f09000d;
+        public static final int photo_image=0x7f09000e;
+        public static final int photo_titleText=0x7f09000c;
+        public static final int search_resultList=0x7f090010;
+        public static final int search_searchText=0x7f09000f;
+        public static final int settings_optionsList=0x7f090011;
+        public static final int sync_checkPlainText=0x7f090018;
+        public static final int sync_deviceName=0x7f090014;
+        public static final int sync_email=0x7f090012;
+        public static final int sync_errorCheckPlainText=0x7f090017;
+        public static final int sync_errorOptions=0x7f090015;
+        public static final int sync_options=0x7f090016;
+        public static final int sync_password=0x7f090013;
+        public static final int sync_submitButton=0x7f090019;
     }
     public static final class layout {
         public static final int activity_edit=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_photo=0x7f030002;
-        public static final int activity_search=0x7f030003;
-        public static final int activity_settings=0x7f030004;
-        public static final int activity_sync=0x7f030005;
+        public static final int activity_help=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_photo=0x7f030003;
+        public static final int activity_search=0x7f030004;
+        public static final int activity_settings=0x7f030005;
+        public static final int activity_sync=0x7f030006;
     }
     public static final class menu {
         public static final int edit=0x7f080000;
-        public static final int main=0x7f080001;
-        public static final int photo=0x7f080002;
-        public static final int photo_viewer=0x7f080003;
-        public static final int search=0x7f080004;
-        public static final int settings=0x7f080005;
-        public static final int sync=0x7f080006;
+        public static final int help=0x7f080001;
+        public static final int main=0x7f080002;
+        public static final int photo=0x7f080003;
+        public static final int photo_viewer=0x7f080004;
+        public static final int search=0x7f080005;
+        public static final int settings=0x7f080006;
+        public static final int sync=0x7f080007;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
@@ -94,7 +100,10 @@ public final class R {
         public static final int edit_done=0x7f060017;
         public static final int edit_titleHint=0x7f060014;
         public static final int edit_titleLabel=0x7f060016;
-        public static final int hello_world=0x7f06001d;
+        public static final int help_check=0x7f060021;
+        public static final int help_newNote=0x7f06001e;
+        public static final int help_newPhoto=0x7f06001f;
+        public static final int help_search=0x7f060020;
         public static final int main_newDesc=0x7f060004;
         public static final int main_newPhotoDesc=0x7f060005;
         /**  Main Activity 
@@ -118,10 +127,12 @@ public final class R {
         /**  Edit Activity 
          */
         public static final int title_activity_edit=0x7f060013;
+        /**  Help Activity 
+         */
+        public static final int title_activity_help=0x7f06001d;
         /**  New Photo Activity 
          */
         public static final int title_activity_photo=0x7f060018;
-        public static final int title_activity_photo_viewer=0x7f06001e;
         /**  Search Activity 
          */
         public static final int title_activity_search=0x7f06001a;

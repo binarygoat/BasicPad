@@ -33,8 +33,20 @@ public class MainActivity extends BaseActivity
 		
 		initNavButtons();
 		
+		showHelp();
 	}
 
+	//if the help screen has not been shown to the user
+	//redirect to the the HelpActivity
+	public void showHelp()
+	{
+		if(!settings.contains(SETTINGS_PREFS_HELP) || settings.getBoolean(SETTINGS_PREFS_HELP, true))
+		{
+			startActivity(new Intent(MainActivity.this, HelpActivity.class));
+		}
+		
+	}
+	
 	//populates the ListView with recent notes
 	public void initNoteList()
 	{
@@ -48,7 +60,6 @@ public class MainActivity extends BaseActivity
 	    noteListValues .add("PCC");
 	    noteListValues .add("QFC");
 	    noteListValues .add("Whole Foods");
-	    noteListValues .add("Super Suplements");
 	    noteListValues .add("Trader Joe's");
 	    noteListValues .add("Safeway");
 	    noteListValues .add("Target");
