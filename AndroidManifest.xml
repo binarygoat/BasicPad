@@ -42,10 +42,6 @@
             android:name="com.notepad.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
-        <activity
-            android:name="com.notepad.PhotoViewerActivity"
-            android:label="@string/title_activity_photo_viewer" >
-        </activity>
     </application>
 
 </manifest>

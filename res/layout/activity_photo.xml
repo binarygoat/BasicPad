@@ -4,31 +4,44 @@
     android:layout_height="match_parent"
     tools:context=".PhotoActivity" 
     android:orientation="vertical"
-    style="@style/activity_light"
+    style="@style/activity_dark"
     >
 	
+        <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/edit_titleLabel"
+        	style="@style/text_dark"
+            />
+		<EditText 
+		    android:id="@+id/photo_titleText"
+		    android:layout_width="0dip"
+		    android:layout_height="wrap_content"
+	    	android:layout_weight="1"
+		    android:inputType="text"
+		    android:hint="@string/edit_titleHint"
+		    style="@style/EditText"
+		    />
+		<ImageButton
+           android:id="@+id/photo_doneButton"
+           style="@style/nav_button"
+           android:contentDescription="@string/edit_done"
+           android:src="@drawable/check_icon"
+           />
+	</LinearLayout>
+    
     <ImageView
+        android:id="@+id/photo_image"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
     	android:layout_weight="1"
-        android:src="@drawable/icon_green"
+        android:src="@drawable/new_photo_icon"
         android:contentDescription="@string/title_activity_photo"
         
 		/>
-    
-    <RelativeLayout
-        android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	
-    	style="@style/nav"
-    	>
-       <ImageButton
-           android:id="@+id/photo_capture"
-           style="@style/nav_button"
-           android:contentDescription="@string/photo_capture"
-           android:src="@drawable/new_photo_icon"           
-           android:layout_centerInParent="true"
-           />
-    </RelativeLayout>
-
 </LinearLayout>

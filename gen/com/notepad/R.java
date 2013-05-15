@@ -55,9 +55,9 @@ public final class R {
         public static final int main_noteList=0x7f090003;
         public static final int main_searchButton=0x7f090006;
         public static final int main_settingsButton=0x7f090007;
-        public static final int photoViewer_photo=0x7f09000a;
-        public static final int photoViewer_titleText=0x7f090009;
-        public static final int photo_capture=0x7f090008;
+        public static final int photo_doneButton=0x7f090009;
+        public static final int photo_image=0x7f09000a;
+        public static final int photo_titleText=0x7f090008;
         public static final int search_resultList=0x7f09000c;
         public static final int search_searchText=0x7f09000b;
         public static final int settings_optionsList=0x7f09000d;
@@ -74,10 +74,9 @@ public final class R {
         public static final int activity_edit=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_photo=0x7f030002;
-        public static final int activity_photo_viewer=0x7f030003;
-        public static final int activity_search=0x7f030004;
-        public static final int activity_settings=0x7f030005;
-        public static final int activity_sync=0x7f030006;
+        public static final int activity_search=0x7f030003;
+        public static final int activity_settings=0x7f030004;
+        public static final int activity_sync=0x7f030005;
     }
     public static final class menu {
         public static final int edit=0x7f080000;
