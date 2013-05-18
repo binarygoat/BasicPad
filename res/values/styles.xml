@@ -54,6 +54,10 @@
         <item name="android:padding">@dimen/nav_horizontal_margin</item>
     </style>
     
+    <style name="checkbox_dark">
+        <item name="android:textColor">@color/theme_dark_fore</item>
+    </style>
+    
     <style name="list_dark">
         <item name="android:textColor">@color/theme_dark_fore</item>
         <item name="android:background">@color/theme_dark_back</item>

@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity" 
+    android:padding="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    style="@style/activity_dark"
+    >
+<LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	>
+       <ImageButton
+           android:id="@+id/help_newNoteIcon"
+           style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/new_icon"
+           />
+       <TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/help_newNote"
+        	style="@style/text_dark"
+            />
+       
+    </LinearLayout>
+	
+<LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	>
+       <ImageButton
+           android:id="@+id/help_newPhotoIcon"
+			style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/new_photo_icon"
+           />
+       <TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/help_newPhoto"
+        	style="@style/text_dark"
+            />
+       
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	>
+       <ImageButton
+           android:id="@+id/help_searchIcon"
+           style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/search_icon"
+           />
+       <TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/help_search"
+        	style="@style/text_dark"
+            />
+       
+    </LinearLayout>
+	
+    <LinearLayout
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	>
+       <ImageButton
+           android:id="@+id/help_checkIcon"
+           style="@style/nav_button"
+           android:contentDescription="@string/main_newDesc"
+           android:src="@drawable/check_icon"
+           />
+       <TextView 
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/help_check"
+        	style="@style/text_dark"
+            />
+       
+    </LinearLayout>
+    
+    <TextView 
+        android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:text="@string/help_menu"
+       	style="@style/text_dark"
+        />
+   
+    <CheckBox 
+        android:id="@+id/help_showAtStartCheck"
+        android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:checked="true"
+       	android:text="@string/help_showAtStartLabel"
+       	style="@style/checkbox_dark"
+       	/>
+    
+    <Button 
+        android:id="@+id/help_continueButton"
+        android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:text="@string/help_continue"
+        />
+</LinearLayout>

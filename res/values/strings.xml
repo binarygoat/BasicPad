@@ -44,10 +44,13 @@
     <string name="title_activity_settings">Settings</string>
     
     <!-- Help Activity -->    
-    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_help">Help</string>
     <string name="help_newNote">New Note</string>
     <string name="help_newPhoto">New Photo Note</string>
     <string name="help_search">Search</string>
     <string name="help_check">Save Note and return to Home screen</string>
+    <string name="help_showAtStartLabel">Show Help at Startup</string>
+    <string name="help_continue">Continue</string>
+    <string name="help_menu">Press your phone\'s menu button for more options.</string>
 
 </resources>

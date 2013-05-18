@@ -56,9 +56,10 @@ public class SettingsActivity extends BaseActivity {
 			//set the current note title to settings
 			String selected = (String) parent.getItemAtPosition(position);
 			
+			if(selected.equals(""))
 			
 			//switch to the note editor activity
-			startActivity(new Intent(SettingsActivity.this, SyncActivity.class));	
+			startActivity(new Intent(SettingsActivity.this, SyncActivity.class));
 		}
 		
 	}

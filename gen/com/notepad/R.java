@@ -46,33 +46,35 @@ public final class R {
         public static final int settings_icon=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001a;
+        public static final int action_settings=0x7f09001c;
         public static final int edit_bodyText=0x7f090002;
         public static final int edit_doneButton=0x7f090001;
         public static final int edit_titleText=0x7f090000;
         public static final int help_checkIcon=0x7f090006;
+        public static final int help_continueButton=0x7f090008;
         public static final int help_newNoteIcon=0x7f090003;
         public static final int help_newPhotoIcon=0x7f090004;
         public static final int help_searchIcon=0x7f090005;
-        public static final int main_newNoteButton=0x7f090008;
-        public static final int main_newPhotoButton=0x7f090009;
-        public static final int main_noteList=0x7f090007;
-        public static final int main_searchButton=0x7f09000a;
-        public static final int main_settingsButton=0x7f09000b;
-        public static final int photo_doneButton=0x7f09000d;
-        public static final int photo_image=0x7f09000e;
-        public static final int photo_titleText=0x7f09000c;
-        public static final int search_resultList=0x7f090010;
-        public static final int search_searchText=0x7f09000f;
-        public static final int settings_optionsList=0x7f090011;
-        public static final int sync_checkPlainText=0x7f090018;
-        public static final int sync_deviceName=0x7f090014;
-        public static final int sync_email=0x7f090012;
-        public static final int sync_errorCheckPlainText=0x7f090017;
-        public static final int sync_errorOptions=0x7f090015;
-        public static final int sync_options=0x7f090016;
-        public static final int sync_password=0x7f090013;
-        public static final int sync_submitButton=0x7f090019;
+        public static final int help_showAtStartCheck=0x7f090007;
+        public static final int main_newNoteButton=0x7f09000a;
+        public static final int main_newPhotoButton=0x7f09000b;
+        public static final int main_noteList=0x7f090009;
+        public static final int main_searchButton=0x7f09000c;
+        public static final int main_settingsButton=0x7f09000d;
+        public static final int photo_doneButton=0x7f09000f;
+        public static final int photo_image=0x7f090010;
+        public static final int photo_titleText=0x7f09000e;
+        public static final int search_resultList=0x7f090012;
+        public static final int search_searchText=0x7f090011;
+        public static final int settings_optionsList=0x7f090013;
+        public static final int sync_checkPlainText=0x7f09001a;
+        public static final int sync_deviceName=0x7f090016;
+        public static final int sync_email=0x7f090014;
+        public static final int sync_errorCheckPlainText=0x7f090019;
+        public static final int sync_errorOptions=0x7f090017;
+        public static final int sync_options=0x7f090018;
+        public static final int sync_password=0x7f090015;
+        public static final int sync_submitButton=0x7f09001b;
     }
     public static final class layout {
         public static final int activity_edit=0x7f030000;
@@ -101,9 +103,12 @@ public final class R {
         public static final int edit_titleHint=0x7f060014;
         public static final int edit_titleLabel=0x7f060016;
         public static final int help_check=0x7f060021;
+        public static final int help_continue=0x7f060023;
+        public static final int help_menu=0x7f060024;
         public static final int help_newNote=0x7f06001e;
         public static final int help_newPhoto=0x7f06001f;
         public static final int help_search=0x7f060020;
+        public static final int help_showAtStartLabel=0x7f060022;
         public static final int main_newDesc=0x7f060004;
         public static final int main_newPhotoDesc=0x7f060005;
         /**  Main Activity 
@@ -174,7 +179,7 @@ public final class R {
  item name="android:layout_marginBottom">@dimen/nav_vertical_margin</item>
         <item name="android:padding">@dimen/nav_horizontal_margin</item
          */
-        public static final int EditText=0x7f07000a;
+        public static final int EditText=0x7f07000b;
         public static final int activity_dark=0x7f070006;
         public static final int activity_light=0x7f070002;
         /**  item name="android:background">@color/theme_dark_back</item>
@@ -188,16 +193,17 @@ public final class R {
 	    <item name="android:paddingRight">@dimen/button_horizontal_margin</item>
 	    <item name="android:paddingTop">@dimen/button_vertical_margin</item 
          */
-        public static final int button=0x7f07000e;
-        public static final int editText_multiLine=0x7f07000b;
+        public static final int button=0x7f07000f;
+        public static final int checkbox_dark=0x7f070009;
+        public static final int editText_multiLine=0x7f07000c;
         public static final int heading_dark=0x7f070007;
         public static final int heading_light=0x7f070003;
         /**  item name="android:listSelector">@android:color/transparent</item
          */
-        public static final int list_dark=0x7f070009;
+        public static final int list_dark=0x7f07000a;
         public static final int list_light=0x7f070005;
-        public static final int nav=0x7f07000c;
-        public static final int nav_button=0x7f07000d;
+        public static final int nav=0x7f07000d;
+        public static final int nav_button=0x7f07000e;
         public static final int text_dark=0x7f070008;
         public static final int text_light=0x7f070004;
     }

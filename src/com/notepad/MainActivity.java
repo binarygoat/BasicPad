@@ -40,6 +40,8 @@ public class MainActivity extends BaseActivity
 	//redirect to the the HelpActivity
 	public void showHelp()
 	{
+		//startActivity(new Intent(MainActivity.this, HelpActivity.class));
+		
 		if(!settings.contains(SETTINGS_PREFS_HELP) || settings.getBoolean(SETTINGS_PREFS_HELP, true))
 		{
 			startActivity(new Intent(MainActivity.this, HelpActivity.class));
@@ -63,16 +65,16 @@ public class MainActivity extends BaseActivity
 	    noteListValues .add("Trader Joe's");
 	    noteListValues .add("Safeway");
 	    noteListValues .add("Target");
-	    noteListValues .add("Some Note 0");
-	    noteListValues .add("Some Note 1");
-	    noteListValues .add("Some Note 2");
-	    noteListValues .add("Some Note 3");
-	    noteListValues .add("Some Note 4");
-	    noteListValues .add("Some Note 5");
-	    noteListValues .add("Some Note 6");
-	    noteListValues .add("Some Note 7");
-	    noteListValues .add("Some Note 8");
-	    noteListValues .add("Some Note 9");
+	    noteListValues .add("Sample Note 0");
+	    noteListValues .add("Sample Note 1");
+	    noteListValues .add("Sample Note 2");
+	    noteListValues .add("Sample Note 3");
+	    noteListValues .add("Sample Note 4");
+	    noteListValues .add("Sample Note 5");
+	    noteListValues .add("Sample Note 6");
+	    noteListValues .add("Sample Note 7");
+	    noteListValues .add("Sample Note 8");
+	    noteListValues .add("Sample Note 9");
 	    
 	    
 	    
