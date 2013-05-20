@@ -2,6 +2,7 @@ package com.notepad;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -37,8 +38,10 @@ public class SyncActivity extends BaseActivity {
 			//if everything is valid then toast
 			if(validEmail && validPassword && validDeviceName && validOptions && validCheckPlainText)
 			{
-				Toast myToast = Toast.makeText(SyncActivity.this, "All feilds are valid", Toast.LENGTH_LONG);
-				myToast.show();
+				//Toast myToast = Toast.makeText(SyncActivity.this, "All feilds are valid", Toast.LENGTH_LONG);
+				//myToast.show();
+				
+				startActivity(new Intent(SyncActivity.this, SettingsActivity.class));
 			}
 			
 		}

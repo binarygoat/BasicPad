@@ -113,4 +113,9 @@
 	    
     </style>
     
+    <style name="text_error">
+         <item name="android:textColor">@color/error</item>
+         <item name="android:textStyle">bold</item>
+    </style>
+    
 </resources>

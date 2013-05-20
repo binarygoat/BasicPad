@@ -2,6 +2,7 @@ package com.notepad;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class HelpActivity extends BaseActivity {
 
@@ -55,8 +57,26 @@ public class HelpActivity extends BaseActivity {
 			//save the status of the check box to settings
 			saveCheckStatus();
 			
-			//go to main activity
-			startActivity(new Intent(HelpActivity.this, MainActivity.class));
+			
+			//ComponentName sender = getCallingActivity();
+			//String s = sender.getShortClassName().toString();
+			//getIntent().getStringExtra("from").equals("activity1")
+			//Toast myToast = Toast.makeText(HelpActivity.this, getIntent().getStringExtra("sender"), Toast.LENGTH_LONG);
+			//myToast.show();
+			
+			
+			//if the sender is the SettingsActivity then return to settings, else go to the home screen
+			if(getIntent().getStringExtra("sender").equals("SettingsActivity"))
+			{
+				//go to settings activity
+				startActivity(new Intent(HelpActivity.this, SettingsActivity.class));
+			}
+			else
+			{
+				//go to main activity
+				startActivity(new Intent(HelpActivity.this, MainActivity.class));
+			}
+			
 		}
 		
 	}

@@ -103,10 +103,17 @@
        	style="@style/checkbox_dark"
        	/>
     
+    <TextView 
+        android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:text="@string/help_fromSettings"
+       	style="@style/text_dark"
+        />
+    
     <Button 
         android:id="@+id/help_continueButton"
         android:layout_width="wrap_content"
        	android:layout_height="wrap_content"
-       	android:text="@string/help_continue"
+       	android:text="@string/continue_button"
         />
 </LinearLayout>

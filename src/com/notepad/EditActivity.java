@@ -32,7 +32,8 @@ public class EditActivity extends BaseActivity
 	{
 		EditText et = (EditText) findViewById(id);
 		
-		if(settings.contains(prefKey))
+		//if the note title is set and it is not a new note
+		if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
 		{
 			et.setText(settings.getString(prefKey, ""));
 		}

@@ -6,7 +6,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".SyncActivity" >
+    tools:context=".SyncActivity" 
+    style="@style/activity_dark"
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -18,6 +20,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/sync_usernameLabel" 
+	        style="@style/text_dark"
 	        />
 	    
 	    <EditText 
@@ -25,12 +28,14 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:inputType="textEmailAddress"
+	        style="@style/EditText"
 	        />
 	    
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/sync_passwordLabel" 
+	        style="@style/text_dark"
 	        />
 	    
 	    <EditText 
@@ -38,12 +43,14 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:inputType="textPassword"
+	        style="@style/EditText"
 	        />
 	    
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/sync_deviceNameLabel" 
+	        style="@style/text_dark"
 	        />
 	    
 	    <EditText 
@@ -51,12 +58,14 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:inputType="text"
+	        style="@style/EditText"
 	        />
 	    
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/sync_optionsLabel" 
+	        style="@style/text_dark"
 	        />
 	    
 	    <TextView
@@ -64,8 +73,8 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/required"
-	        android:textColor="@color/error"
 	        android:visibility="invisible"
+	        style="@style/text_error"
 	        />
 	    
 	    <RadioGroup 
@@ -78,12 +87,14 @@
 	            android:layout_width="wrap_content"
 	        	android:layout_height="wrap_content"
 	        	android:text="@string/sync_radioPhotosLabel"
+	        	style="@style/checkbox_dark"
 	            />
 	        
 	        <RadioButton 
 	            android:layout_width="wrap_content"
 	        	android:layout_height="wrap_content"
 	        	android:text="@string/sync_textOnlyLabel"
+	        	style="@style/checkbox_dark"
 	        	/>
 	        
 	    </RadioGroup>
@@ -92,6 +103,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/sync_checkLabel" 
+	        style="@style/text_dark"
 	        />
 	    
 	    <TextView
@@ -99,8 +111,8 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/required"
-	        android:textColor="@color/error"
 	        android:visibility="invisible"
+	        style="@style/text_error"
 	        />
 	    
 	    <CheckBox 
@@ -108,13 +120,14 @@
 			android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/sync_checkAgreeLabel"
+	        style="@style/checkbox_dark"
 	        />
 	    
 	    <Button 
 	        android:id="@+id/sync_submitButton"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/submit"
+	        android:text="@string/continue_button"
 	        />
 	</LinearLayout>
 </ScrollView>

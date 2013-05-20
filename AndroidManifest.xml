@@ -46,6 +46,10 @@
             android:name="com.notepad.HelpActivity"
             android:label="@string/title_activity_help" >
         </activity>
+        <activity
+            android:name="com.notepad.FontActivity"
+            android:label="@string/title_activity_font" >
+        </activity>
     </application>
 
 </manifest>

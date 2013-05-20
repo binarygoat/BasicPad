@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity
 		
 		if(!settings.contains(SETTINGS_PREFS_HELP) || settings.getBoolean(SETTINGS_PREFS_HELP, true))
 		{
-			startActivity(new Intent(MainActivity.this, HelpActivity.class));
+			startActivity(new Intent(MainActivity.this, HelpActivity.class).putExtra("sender", "MainActivity"));
 		}
 		
 	}

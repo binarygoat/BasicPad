@@ -8,6 +8,11 @@
 package com.notepad;
 
 public final class R {
+    public static final class array {
+        public static final int font_colorArray=0x7f070001;
+        public static final int font_faceArray=0x7f070000;
+        public static final int font_sizeArray=0x7f070002;
+    }
     public static final class attr {
     }
     public static final class color {
@@ -46,92 +51,105 @@ public final class R {
         public static final int settings_icon=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001c;
-        public static final int edit_bodyText=0x7f090002;
-        public static final int edit_doneButton=0x7f090001;
-        public static final int edit_titleText=0x7f090000;
-        public static final int help_checkIcon=0x7f090006;
-        public static final int help_continueButton=0x7f090008;
-        public static final int help_newNoteIcon=0x7f090003;
-        public static final int help_newPhotoIcon=0x7f090004;
-        public static final int help_searchIcon=0x7f090005;
-        public static final int help_showAtStartCheck=0x7f090007;
-        public static final int main_newNoteButton=0x7f09000a;
-        public static final int main_newPhotoButton=0x7f09000b;
-        public static final int main_noteList=0x7f090009;
-        public static final int main_searchButton=0x7f09000c;
-        public static final int main_settingsButton=0x7f09000d;
-        public static final int photo_doneButton=0x7f09000f;
-        public static final int photo_image=0x7f090010;
-        public static final int photo_titleText=0x7f09000e;
-        public static final int search_resultList=0x7f090012;
-        public static final int search_searchText=0x7f090011;
-        public static final int settings_optionsList=0x7f090013;
-        public static final int sync_checkPlainText=0x7f09001a;
-        public static final int sync_deviceName=0x7f090016;
-        public static final int sync_email=0x7f090014;
-        public static final int sync_errorCheckPlainText=0x7f090019;
-        public static final int sync_errorOptions=0x7f090017;
-        public static final int sync_options=0x7f090018;
-        public static final int sync_password=0x7f090015;
-        public static final int sync_submitButton=0x7f09001b;
+        public static final int action_settings=0x7f0a0020;
+        public static final int edit_bodyText=0x7f0a0002;
+        public static final int edit_doneButton=0x7f0a0001;
+        public static final int edit_titleText=0x7f0a0000;
+        public static final int font_color=0x7f0a0004;
+        public static final int font_contButton=0x7f0a0006;
+        public static final int font_face=0x7f0a0003;
+        public static final int font_size=0x7f0a0005;
+        public static final int help_checkIcon=0x7f0a000a;
+        public static final int help_continueButton=0x7f0a000c;
+        public static final int help_newNoteIcon=0x7f0a0007;
+        public static final int help_newPhotoIcon=0x7f0a0008;
+        public static final int help_searchIcon=0x7f0a0009;
+        public static final int help_showAtStartCheck=0x7f0a000b;
+        public static final int main_newNoteButton=0x7f0a000e;
+        public static final int main_newPhotoButton=0x7f0a000f;
+        public static final int main_noteList=0x7f0a000d;
+        public static final int main_searchButton=0x7f0a0010;
+        public static final int main_settingsButton=0x7f0a0011;
+        public static final int photo_doneButton=0x7f0a0013;
+        public static final int photo_image=0x7f0a0014;
+        public static final int photo_titleText=0x7f0a0012;
+        public static final int search_resultList=0x7f0a0016;
+        public static final int search_searchText=0x7f0a0015;
+        public static final int settings_optionsList=0x7f0a0017;
+        public static final int sync_checkPlainText=0x7f0a001e;
+        public static final int sync_deviceName=0x7f0a001a;
+        public static final int sync_email=0x7f0a0018;
+        public static final int sync_errorCheckPlainText=0x7f0a001d;
+        public static final int sync_errorOptions=0x7f0a001b;
+        public static final int sync_options=0x7f0a001c;
+        public static final int sync_password=0x7f0a0019;
+        public static final int sync_submitButton=0x7f0a001f;
     }
     public static final class layout {
         public static final int activity_edit=0x7f030000;
-        public static final int activity_help=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_photo=0x7f030003;
-        public static final int activity_search=0x7f030004;
-        public static final int activity_settings=0x7f030005;
-        public static final int activity_sync=0x7f030006;
+        public static final int activity_font=0x7f030001;
+        public static final int activity_help=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_photo=0x7f030004;
+        public static final int activity_search=0x7f030005;
+        public static final int activity_settings=0x7f030006;
+        public static final int activity_sync=0x7f030007;
     }
     public static final class menu {
-        public static final int edit=0x7f080000;
-        public static final int help=0x7f080001;
-        public static final int main=0x7f080002;
-        public static final int photo=0x7f080003;
-        public static final int photo_viewer=0x7f080004;
-        public static final int search=0x7f080005;
-        public static final int settings=0x7f080006;
-        public static final int sync=0x7f080007;
+        public static final int about=0x7f090000;
+        public static final int edit=0x7f090001;
+        public static final int font=0x7f090002;
+        public static final int help=0x7f090003;
+        public static final int main=0x7f090004;
+        public static final int photo=0x7f090005;
+        public static final int photo_viewer=0x7f090006;
+        public static final int search=0x7f090007;
+        public static final int settings=0x7f090008;
+        public static final int sync=0x7f090009;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int continue_button=0x7f060003;
         public static final int edit_bodyHint=0x7f060015;
         public static final int edit_done=0x7f060017;
         public static final int edit_titleHint=0x7f060014;
         public static final int edit_titleLabel=0x7f060016;
+        public static final int font_colorPrompt=0x7f060027;
+        public static final int font_facePrompt=0x7f060026;
+        public static final int font_sizePrompt=0x7f060028;
         public static final int help_check=0x7f060021;
-        public static final int help_continue=0x7f060023;
-        public static final int help_menu=0x7f060024;
+        public static final int help_fromSettings=0x7f060024;
+        public static final int help_menu=0x7f060023;
         public static final int help_newNote=0x7f06001e;
         public static final int help_newPhoto=0x7f06001f;
         public static final int help_search=0x7f060020;
         public static final int help_showAtStartLabel=0x7f060022;
-        public static final int main_newDesc=0x7f060004;
-        public static final int main_newPhotoDesc=0x7f060005;
+        public static final int main_newDesc=0x7f060005;
+        public static final int main_newPhotoDesc=0x7f060006;
         /**  Main Activity 
          */
-        public static final int main_recentHeading=0x7f060003;
-        public static final int main_searchDesc=0x7f060006;
-        public static final int main_settingsDesc=0x7f060007;
+        public static final int main_recentHeading=0x7f060004;
+        public static final int main_searchDesc=0x7f060007;
+        public static final int main_settingsDesc=0x7f060008;
         public static final int photo_capture=0x7f060019;
         public static final int required=0x7f060012;
         public static final int search_searchHint=0x7f06001b;
-        public static final int submit=0x7f060011;
-        public static final int sync_checkAgreeLabel=0x7f060010;
-        public static final int sync_checkLabel=0x7f06000f;
-        public static final int sync_deviceNameLabel=0x7f06000c;
-        public static final int sync_optionsLabel=0x7f06000b;
-        public static final int sync_passwordLabel=0x7f06000a;
-        public static final int sync_radioPhotosLabel=0x7f06000d;
+        public static final int sync_checkAgreeLabel=0x7f060011;
+        public static final int sync_checkLabel=0x7f060010;
+        public static final int sync_deviceNameLabel=0x7f06000d;
+        public static final int sync_optionsLabel=0x7f06000c;
+        public static final int sync_passwordLabel=0x7f06000b;
+        public static final int sync_radioPhotosLabel=0x7f06000e;
         public static final int sync_settings=0x7f060002;
-        public static final int sync_textOnlyLabel=0x7f06000e;
-        public static final int sync_usernameLabel=0x7f060009;
+        public static final int sync_textOnlyLabel=0x7f06000f;
+        public static final int sync_usernameLabel=0x7f06000a;
         /**  Edit Activity 
          */
         public static final int title_activity_edit=0x7f060013;
+        /**  Font Activity 
+         */
+        public static final int title_activity_font=0x7f060025;
         /**  Help Activity 
          */
         public static final int title_activity_help=0x7f06001d;
@@ -146,7 +164,7 @@ public final class R {
         public static final int title_activity_settings=0x7f06001c;
         /**  Sync Settings Activity 
          */
-        public static final int title_activity_sync=0x7f060008;
+        public static final int title_activity_sync=0x7f060009;
     }
     public static final class style {
         /** 
@@ -170,18 +188,18 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
         /**  item name="android:background">@color/theme_light_back</item
  item name="android:layout_marginBottom">@dimen/nav_vertical_margin</item>
         <item name="android:padding">@dimen/nav_horizontal_margin</item
          */
-        public static final int EditText=0x7f07000b;
-        public static final int activity_dark=0x7f070006;
-        public static final int activity_light=0x7f070002;
+        public static final int EditText=0x7f08000b;
+        public static final int activity_dark=0x7f080006;
+        public static final int activity_light=0x7f080002;
         /**  item name="android:background">@color/theme_dark_back</item>
         <item name="android:textColor">@color/theme_dark_fore</item>
         
@@ -193,18 +211,19 @@ public final class R {
 	    <item name="android:paddingRight">@dimen/button_horizontal_margin</item>
 	    <item name="android:paddingTop">@dimen/button_vertical_margin</item 
          */
-        public static final int button=0x7f07000f;
-        public static final int checkbox_dark=0x7f070009;
-        public static final int editText_multiLine=0x7f07000c;
-        public static final int heading_dark=0x7f070007;
-        public static final int heading_light=0x7f070003;
+        public static final int button=0x7f08000f;
+        public static final int checkbox_dark=0x7f080009;
+        public static final int editText_multiLine=0x7f08000c;
+        public static final int heading_dark=0x7f080007;
+        public static final int heading_light=0x7f080003;
         /**  item name="android:listSelector">@android:color/transparent</item
          */
-        public static final int list_dark=0x7f07000a;
-        public static final int list_light=0x7f070005;
-        public static final int nav=0x7f07000d;
-        public static final int nav_button=0x7f07000e;
-        public static final int text_dark=0x7f070008;
-        public static final int text_light=0x7f070004;
+        public static final int list_dark=0x7f08000a;
+        public static final int list_light=0x7f080005;
+        public static final int nav=0x7f08000d;
+        public static final int nav_button=0x7f08000e;
+        public static final int text_dark=0x7f080008;
+        public static final int text_error=0x7f080010;
+        public static final int text_light=0x7f080004;
     }
 }
