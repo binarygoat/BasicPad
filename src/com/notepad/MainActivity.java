@@ -53,32 +53,36 @@ public class MainActivity extends BaseActivity
 	public void initNoteList()
 	{
 		ListView noteListView = (ListView) findViewById(R.id.main_noteList);
-		
+		/*
 	    ArrayList<String> noteListValues = new ArrayList<String>();
 	    
 	    //temp data
 	    //the list will be populated from the database
-	    noteListValues .add("To Do");
-	    noteListValues .add("PCC");
-	    noteListValues .add("QFC");
-	    noteListValues .add("Whole Foods");
-	    noteListValues .add("Trader Joe's");
-	    noteListValues .add("Safeway");
-	    noteListValues .add("Target");
-	    noteListValues .add("Sample Note 0");
-	    noteListValues .add("Sample Note 1");
-	    noteListValues .add("Sample Note 2");
-	    noteListValues .add("Sample Note 3");
-	    noteListValues .add("Sample Note 4");
-	    noteListValues .add("Sample Note 5");
-	    noteListValues .add("Sample Note 6");
-	    noteListValues .add("Sample Note 7");
-	    noteListValues .add("Sample Note 8");
-	    noteListValues .add("Sample Note 9");
+	    noteListValues.add("To Do");
+	    noteListValues.add("PCC");
+	    noteListValues.add("QFC");
+	    noteListValues.add("Whole Foods");
+	    noteListValues.add("Trader Joe's");
+	    noteListValues.add("Safeway");
+	    noteListValues.add("Target");
+	    noteListValues.add("Sample Note 0");
+	    noteListValues.add("Sample Note 1");
+	    noteListValues.add("Sample Note 2");
+	    noteListValues.add("Sample Note 3");
+	    noteListValues.add("Sample Note 4");
+	    noteListValues.add("Sample Note 5");
+	    noteListValues.add("Sample Note 6");
+	    noteListValues.add("Sample Note 7");
+	    noteListValues.add("Sample Note 8");
+	    noteListValues.add("Sample Note 9");
+	    */
 	    
+	    String[] s = {"To Do", "Sample Note 0", "Sample Note 1", "Sample Note 2",
+	    		"Sample Note 3", "Sample Note 4", "Sample Note 5","Sample Note 6", "Sample Note 7", "Sample Note 8"};
 	    
+	    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noteListValues);
 	    
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noteListValues);
+	    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, s);
 	    noteListView.setAdapter(adapter);
 
 	    noteListView.setOnItemClickListener(new NoteListClickListener());

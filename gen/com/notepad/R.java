@@ -47,11 +47,13 @@ public final class R {
         public static final int icon_green=0x7f020003;
         public static final int new_icon=0x7f020004;
         public static final int new_photo_icon=0x7f020005;
-        public static final int search_icon=0x7f020006;
-        public static final int settings_icon=0x7f020007;
+        public static final int note_icon=0x7f020006;
+        public static final int photo_icon=0x7f020007;
+        public static final int search_icon=0x7f020008;
+        public static final int settings_icon=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0020;
+        public static final int action_settings=0x7f0a0022;
         public static final int edit_bodyText=0x7f0a0002;
         public static final int edit_doneButton=0x7f0a0001;
         public static final int edit_titleText=0x7f0a0000;
@@ -65,6 +67,8 @@ public final class R {
         public static final int help_newPhotoIcon=0x7f0a0008;
         public static final int help_searchIcon=0x7f0a0009;
         public static final int help_showAtStartCheck=0x7f0a000b;
+        public static final int list_icon=0x7f0a0020;
+        public static final int list_itemText=0x7f0a0021;
         public static final int main_newNoteButton=0x7f0a000e;
         public static final int main_newPhotoButton=0x7f0a000f;
         public static final int main_noteList=0x7f0a000d;
@@ -94,6 +98,7 @@ public final class R {
         public static final int activity_search=0x7f030005;
         public static final int activity_settings=0x7f030006;
         public static final int activity_sync=0x7f030007;
+        public static final int list_rowlayout=0x7f030008;
     }
     public static final class menu {
         public static final int about=0x7f090000;
