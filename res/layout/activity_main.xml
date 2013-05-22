@@ -56,13 +56,13 @@
            android:src="@drawable/search_icon"
            />
        
-       <ImageButton
+       <!-- ImageButton
            android:id="@+id/main_settingsButton"
            style="@style/nav_button"
            android:contentDescription="@string/main_newDesc"
            android:src="@drawable/settings_icon"
            android:layout_gravity="right"
-           />
+           /-->
     </LinearLayout>
 	
 </LinearLayout>

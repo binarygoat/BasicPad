@@ -84,16 +84,14 @@
 	        >
 	        
 	        <RadioButton 
-	            android:layout_width="wrap_content"
-	        	android:layout_height="wrap_content"
+	            android:id="@+id/sync_radioPhotos"
 	        	android:text="@string/sync_radioPhotosLabel"
 	        	style="@style/checkbox_dark"
 	            />
 	        
 	        <RadioButton 
-	            android:layout_width="wrap_content"
-	        	android:layout_height="wrap_content"
-	        	android:text="@string/sync_textOnlyLabel"
+	            android:id="@+id/sync_radiotextOnly"
+	            android:text="@string/sync_textOnlyLabel"
 	        	style="@style/checkbox_dark"
 	        	/>
 	        

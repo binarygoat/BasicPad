@@ -45,7 +45,16 @@ public class NoteListArrayAdapter extends ArrayAdapter<String>
 	    String s = values[position];
 	    
 	    holder.textView.setText(s);
-	    holder.imageView.setImageResource(R.drawable.note_icon);
+	    
+	    if(position %2 == 0)
+	    {
+	    	holder.imageView.setImageResource(R.drawable.note_icon);
+	    }
+	    else
+	    {
+	    	holder.imageView.setImageResource(R.drawable.photo_icon);
+	    }
+	    
 		
 		//LayoutInflater inflator = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		//rowView = inflator.inflate(R.layout.list_rowlayout, parent, false);

@@ -86,8 +86,9 @@ public class SettingsActivity extends BaseActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.settings, menu);
+		//getMenuInflater().inflate(R.menu.settings, menu);
 		return true;
 	}
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+	    android:id="@+id/menuitem_new"
+	    android:title="@string/baseMenu_new"
+	    android:icon="@android:drawable/ic_menu_add"
+	    >    
+	</item>
+	
+	<item
+	    android:id="@+id/menuitem_newPhoto"
+	    android:title="@string/baseMenu_newPhoto"
+	    android:icon="@android:drawable/ic_menu_camera"
+	    >
+	</item>
+	
+    <item
+	    android:id="@+id/menuitem_home"
+	    android:title="@string/baseMenu_home"
+	    android:icon="@android:drawable/ic_menu_gallery"
+	    >
+	</item>
+    
+    <item
+	    android:id="@+id/menuitem_settings"
+	    android:title="@string/baseMenu_settings"
+	    android:icon="@android:drawable/ic_menu_preferences"
+	    >
+	    
+	</item>
+</menu>

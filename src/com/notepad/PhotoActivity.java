@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -32,7 +33,10 @@ public class PhotoActivity extends BaseActivity {
 		ImageButton doneButton = (ImageButton) findViewById(R.id.photo_doneButton);
 		doneButton.setOnClickListener(new DoneButtonListener());
 		
-		getPhoto();
+		Button captureButton = (Button) findViewById(R.id.photo_captureButton);
+		captureButton.setOnClickListener(new CaptureButtonListener());
+		
+		//getPhoto();
 		
 	}
 
@@ -101,6 +105,14 @@ public class PhotoActivity extends BaseActivity {
 		}
 	}
 	
+	private class CaptureButtonListener implements View.OnClickListener 
+	{
+		public void onClick(View sender) 
+		{
+			getPhoto();
+		}
+	}
+	
 	//save the note
 	public void save()
 	{
@@ -109,8 +121,9 @@ public class PhotoActivity extends BaseActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.photo, menu);
+		//getMenuInflater().inflate(R.menu.photo, menu);
 		return true;
 	}
 

@@ -2,27 +2,82 @@ package com.notepad;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class SyncActivity extends BaseActivity {
 
+	private SharedPreferences settings;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sync);
 		
+		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
+		
+		initEditText(R.id.sync_email, SETTINGS_PREFS_SYNC_EMAIL);
+		initEditText(R.id.sync_password, SETTINGS_PREFS_SYNC_PASSWORD);
+		initEditText(R.id.sync_deviceName, SETTINGS_PREFS_SYNC_DEVICE);
+		
+		initRadioGroup(SETTINGS_PREFS_SYNC_TEXTANDPHOTOS);
+		initCheckBox(R.id.sync_checkPlainText, SETTINGS_PREFS_SYNC_AGREE);
+		
+		
 		Button submitButton = (Button) findViewById(R.id.sync_submitButton);
 		submitButton.setOnClickListener(new submitButtonListener());
+		
+		
 	}
 
+	public void initEditText(int id, String prefKey)
+	{
+		EditText et = (EditText) findViewById(id);
+		
+		//if the note title is set and it is not a new note
+		if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
+		{
+			et.setText(settings.getString(prefKey, ""));
+		}
+	}
+	
+	//set the check box state
+	private void initCheckBox(int id, String prefKey)
+	{
+		CheckBox cb = (CheckBox) findViewById(id);
+		
+		if(settings.contains(prefKey))
+		{
+			cb.setChecked(settings.getBoolean(prefKey, false));
+		}
+		else
+		{
+			cb.setChecked(false);
+		}
+		
+	}
+	
+	//Select the correct radio button
+	public void initRadioGroup(String prefKey)
+	{
+		if(settings.contains(prefKey))
+		{
+			int id = settings.getInt(prefKey, 0);
+			RadioButton radioButton = (RadioButton) findViewById(id);
+			radioButton.setChecked(true);
+		}
+	}
 	
 	private class submitButtonListener implements View.OnClickListener 
 	{
@@ -38,8 +93,14 @@ public class SyncActivity extends BaseActivity {
 			//if everything is valid then toast
 			if(validEmail && validPassword && validDeviceName && validOptions && validCheckPlainText)
 			{
-				//Toast myToast = Toast.makeText(SyncActivity.this, "All feilds are valid", Toast.LENGTH_LONG);
-				//myToast.show();
+				savePref(SETTINGS_PREFS_SYNC_EMAIL, R.id.sync_email);
+				savePref(SETTINGS_PREFS_SYNC_PASSWORD, R.id.sync_password);
+				savePref(SETTINGS_PREFS_SYNC_DEVICE, R.id.sync_deviceName);
+				
+				//saveRadioStatus(SETTINGS_PREFS_SYNC_TEXTANDPHOTOS, R.id.sync_options);
+				saveRadioToPrefs(R.id.sync_options, SETTINGS_PREFS_SYNC_TEXTANDPHOTOS);
+				
+				saveCheckStatus(SETTINGS_PREFS_SYNC_AGREE, R.id.sync_checkPlainText);
 				
 				startActivity(new Intent(SyncActivity.this, SettingsActivity.class));
 			}
@@ -47,7 +108,47 @@ public class SyncActivity extends BaseActivity {
 		}
 	}
 	
+	//saves the text from an EditText to settings
+	public void savePref(String prefKey, int id)
+	{
+		EditText editText = (EditText)findViewById(id);
+		String text = editText.getText().toString().trim();
+		
+		Editor editor = settings.edit();
+		editor.putString(prefKey, text);
+		editor.commit();
+	}
+	
+	//save the state of the check box to settings
+	private void saveCheckStatus(String prefKey, int Id)
+	{
+		CheckBox cb = (CheckBox) findViewById(Id);
+		
+		Editor editor = settings.edit();
+		editor.putBoolean(prefKey, cb.isChecked());
+		editor.commit();
+	}
 
+	//save the state of the check box to settings
+	private void saveRadioStatus(String prefKey, int Id)
+	{
+		RadioGroup rg = (RadioGroup) findViewById(Id);
+		
+		Editor editor = settings.edit();
+		editor.putInt(prefKey, rg.getCheckedRadioButtonId());
+		editor.commit();
+	}
+		
+	public void saveRadioToPrefs(int radioGroupId, String prefKeyId)
+	{
+		RadioGroup radioGroup = (RadioGroup)findViewById(radioGroupId);
+		int selectedId = radioGroup.getCheckedRadioButtonId();
+		
+		Editor editor = settings.edit();
+		editor.putInt(prefKeyId, selectedId);
+		editor.commit();
+	}
+	
 	public boolean validateEmail(int editTextId)
 	{
 		boolean retVal = false;
@@ -153,8 +254,9 @@ public class SyncActivity extends BaseActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.sync, menu);
+		//getMenuInflater().inflate(R.menu.sync, menu);
 		return true;
 	}
 

@@ -53,7 +53,7 @@ public final class R {
         public static final int settings_icon=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0022;
+        public static final int action_settings=0x7f0a0028;
         public static final int edit_bodyText=0x7f0a0002;
         public static final int edit_doneButton=0x7f0a0001;
         public static final int edit_titleText=0x7f0a0000;
@@ -67,27 +67,33 @@ public final class R {
         public static final int help_newPhotoIcon=0x7f0a0008;
         public static final int help_searchIcon=0x7f0a0009;
         public static final int help_showAtStartCheck=0x7f0a000b;
-        public static final int list_icon=0x7f0a0020;
-        public static final int list_itemText=0x7f0a0021;
+        public static final int list_icon=0x7f0a0022;
+        public static final int list_itemText=0x7f0a0023;
         public static final int main_newNoteButton=0x7f0a000e;
         public static final int main_newPhotoButton=0x7f0a000f;
         public static final int main_noteList=0x7f0a000d;
         public static final int main_searchButton=0x7f0a0010;
-        public static final int main_settingsButton=0x7f0a0011;
-        public static final int photo_doneButton=0x7f0a0013;
-        public static final int photo_image=0x7f0a0014;
-        public static final int photo_titleText=0x7f0a0012;
+        public static final int menuitem_home=0x7f0a0026;
+        public static final int menuitem_new=0x7f0a0024;
+        public static final int menuitem_newPhoto=0x7f0a0025;
+        public static final int menuitem_settings=0x7f0a0027;
+        public static final int photo_captureButton=0x7f0a0014;
+        public static final int photo_doneButton=0x7f0a0012;
+        public static final int photo_image=0x7f0a0013;
+        public static final int photo_titleText=0x7f0a0011;
         public static final int search_resultList=0x7f0a0016;
         public static final int search_searchText=0x7f0a0015;
         public static final int settings_optionsList=0x7f0a0017;
-        public static final int sync_checkPlainText=0x7f0a001e;
+        public static final int sync_checkPlainText=0x7f0a0020;
         public static final int sync_deviceName=0x7f0a001a;
         public static final int sync_email=0x7f0a0018;
-        public static final int sync_errorCheckPlainText=0x7f0a001d;
+        public static final int sync_errorCheckPlainText=0x7f0a001f;
         public static final int sync_errorOptions=0x7f0a001b;
         public static final int sync_options=0x7f0a001c;
         public static final int sync_password=0x7f0a0019;
-        public static final int sync_submitButton=0x7f0a001f;
+        public static final int sync_radioPhotos=0x7f0a001d;
+        public static final int sync_radiotextOnly=0x7f0a001e;
+        public static final int sync_submitButton=0x7f0a0021;
     }
     public static final class layout {
         public static final int activity_edit=0x7f030000;
@@ -101,7 +107,7 @@ public final class R {
         public static final int list_rowlayout=0x7f030008;
     }
     public static final class menu {
-        public static final int about=0x7f090000;
+        public static final int base_menu=0x7f090000;
         public static final int edit=0x7f090001;
         public static final int font=0x7f090002;
         public static final int help=0x7f090003;
@@ -115,6 +121,12 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        /**  base_menu 
+         */
+        public static final int baseMenu_home=0x7f060029;
+        public static final int baseMenu_new=0x7f06002b;
+        public static final int baseMenu_newPhoto=0x7f06002c;
+        public static final int baseMenu_settings=0x7f06002a;
         public static final int continue_button=0x7f060003;
         public static final int edit_bodyHint=0x7f060015;
         public static final int edit_done=0x7f060017;

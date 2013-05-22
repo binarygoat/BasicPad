@@ -76,4 +76,12 @@
 	    <item>Large</item>
 	</string-array>
 	
+	<!-- base_menu -->
+	<string name="baseMenu_home">Home</string>
+	<string name="baseMenu_settings">Settings</string>
+	<string name="baseMenu_new">New</string>
+	<string name="baseMenu_newPhoto">New Photo</string>
+	
+	
+	
 </resources>
