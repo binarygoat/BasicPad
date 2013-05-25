@@ -21,6 +21,9 @@ public class MainActivity extends BaseActivity
 {
 	private SharedPreferences settings;
 	
+	private static final int NOTE_ICON_ID = R.drawable.note_icon;
+	private static final int PHOTO_ICON_ID = R.drawable.photo_icon;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,31 +32,30 @@ public class MainActivity extends BaseActivity
 		
 		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
+		showHelp();
+		
 		initNoteList();
 		
 		initNavButtons();
 		
-		showHelp();
 	}
 
 	//if the help screen has not been shown to the user
 	//redirect to the the HelpActivity
 	public void showHelp()
 	{
-		//startActivity(new Intent(MainActivity.this, HelpActivity.class));
-		
 		if(!settings.contains(SETTINGS_PREFS_HELP) || settings.getBoolean(SETTINGS_PREFS_HELP, true))
 		{
 			startActivity(new Intent(MainActivity.this, HelpActivity.class).putExtra("sender", "MainActivity"));
-		}
-		
+		}	
 	}
 	
 	//populates the ListView with recent notes
 	public void initNoteList()
 	{
 		ListView noteListView = (ListView) findViewById(R.id.main_noteList);
-		
+		/*
+		//create the array that will contain list items
 		String[] noteListValues = new String[17];
 		
 	    //temp data
@@ -77,11 +79,31 @@ public class MainActivity extends BaseActivity
 	    noteListValues[16] ="Sample Note 9";
 	    
 	    
-	    //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noteListValues);
-	    
 	    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, noteListValues);
 	    noteListView.setAdapter(adapter);
+	    */
+		//create the array that will contain list items
+				ListItem[] noteListValues = new ListItem[11];
+				
+			    //temp data
+			    //the list will be populated from the database
+			    noteListValues[0] = new ListItem("To Do", 0, NOTE_ICON_ID);
+			    noteListValues[1] = new ListItem("Sample Note 0", 0, NOTE_ICON_ID);
+			    noteListValues[2] = new ListItem("Sample Photo Note 0", 0, PHOTO_ICON_ID);
+			    noteListValues[3] = new ListItem("Sample Note 1", 0, NOTE_ICON_ID);
+			    noteListValues[4] = new ListItem("Sample Note 2", 0, NOTE_ICON_ID);
+			    noteListValues[5] = new ListItem("Sample Photo Note 1", 0, PHOTO_ICON_ID);
+			    noteListValues[6] = new ListItem("Sample Photo Note 2", 0, PHOTO_ICON_ID);
+			    noteListValues[7] = new ListItem("Sample Note 3", 0, NOTE_ICON_ID);
+			    noteListValues[8] = new ListItem("Sample Note 4", 0, NOTE_ICON_ID);
+			    noteListValues[9] = new ListItem("Sample Photo Note 3", 0, PHOTO_ICON_ID);
+			    noteListValues[10] = new ListItem("Sample Note 5", 0, NOTE_ICON_ID);
+			    
+			    
+			    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, noteListValues);
+			    noteListView.setAdapter(adapter);
 
+		
 	    noteListView.setOnItemClickListener(new NoteListClickListener());
 	    
 	}
@@ -97,22 +119,28 @@ public class MainActivity extends BaseActivity
 		
 		ImageButton searchButton = (ImageButton) findViewById(R.id.main_searchButton);
 		searchButton.setOnClickListener(new NavButtonListener());
-		
-		//ImageButton settingsButton = (ImageButton) findViewById(R.id.main_settingsButton);
-		//settingsButton.setOnClickListener(new NavButtonListener());
 	}
 	
+	//Click listener for the ListView Items
 	private class NoteListClickListener implements OnItemClickListener
 	{
-
 		public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
 		{
 			//set the current note title to settings
-			String selected = (String) parent.getItemAtPosition(position);
-			setCurrentNoteToPrefs(selected);
+			ListItem selected = (ListItem) parent.getItemAtPosition(position);
+			setCurrentNoteToPrefs(selected.toString());
 			
-			//switch to the note editor activity
-			startActivity(new Intent(MainActivity.this, EditActivity.class));	
+			if(selected.getIconId() == NOTE_ICON_ID)
+			{
+				//switch to the note editor activity
+				startActivity(new Intent(MainActivity.this, EditActivity.class));
+			}
+			else if(selected.getIconId() == PHOTO_ICON_ID)
+			{
+				//switch to the Photo activity
+				startActivity(new Intent(MainActivity.this, PhotoActivity.class));
+			}
+				
 		}
 		
 	}
@@ -125,13 +153,15 @@ public class MainActivity extends BaseActivity
 		editor.commit();
 	}
 	
+	//Click listener for the navigation buttons
 	private class NavButtonListener implements View.OnClickListener 
 	{
 		public void onClick(View sender) 
 		{
-			
 			int id = sender.getId();
 			
+			//determine which button was clicked
+			//then switch to the appropriate activity
 			switch (id)
 			{
 				case R.id.main_newNoteButton:
@@ -146,16 +176,10 @@ public class MainActivity extends BaseActivity
 				case R.id.main_searchButton:
 					startActivity(new Intent(MainActivity.this, SearchActivity.class));
 					break;
-					
-					
-				//case R.id.main_settingsButton:
-					//startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-					//break;
 			}
 			
 		}
 	}
-	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

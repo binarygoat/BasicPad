@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class NoteListArrayAdapter extends ArrayAdapter<String>
+public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 {
 	private Context context;
-	private String[] values;
+	private ListItem[] values;
 	
 	static class ViewHolder 
 	{
@@ -19,8 +20,9 @@ public class NoteListArrayAdapter extends ArrayAdapter<String>
 	    public ImageView imageView;
 	}
 		
-	public NoteListArrayAdapter(Context context, String[] values) 
+	public NoteListArrayAdapter(Context context, ListItem[] values) 
 	{
+		
 		super(context, R.layout.list_rowlayout, values);
 		
 		this.context = context;
@@ -31,6 +33,8 @@ public class NoteListArrayAdapter extends ArrayAdapter<String>
 	{
 		View rowView = convertView;
 		
+		//if there is no view to reuse
+		//then inflate the xml and create a new object
 		if(rowView == null)
 		{
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -42,20 +46,15 @@ public class NoteListArrayAdapter extends ArrayAdapter<String>
 		}
 		
 		ViewHolder holder = (ViewHolder) rowView.getTag();
-	    String s = values[position];
+
+		ListItem s = values[position];
+
+		if(!(s == null))
+		{
+			holder.textView.setText(s.getTitle());
+			holder.imageView.setImageResource(s.getIconId());
+		}
 	    
-	    holder.textView.setText(s);
-	    
-	    if(position %2 == 0)
-	    {
-	    	holder.imageView.setImageResource(R.drawable.note_icon);
-	    }
-	    else
-	    {
-	    	holder.imageView.setImageResource(R.drawable.photo_icon);
-	    }
-	    
-		
 		//LayoutInflater inflator = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		//rowView = inflator.inflate(R.layout.list_rowlayout, parent, false);
 		//TextView textView = (TextView) rowView.findViewById(R.id.list_itemText);
