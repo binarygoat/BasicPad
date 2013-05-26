@@ -26,6 +26,9 @@ public class SettingsActivity extends BaseActivity {
 	
 	private static final int SETTINGS_ICON_ID = R.drawable.settings_icon;
 	private static final int CHECK_ICON_ID = R.drawable.check_icon;
+	private static final int SYNC_ICON_ID = R.drawable.sync_icon;
+	private static final int HELP_ICON_ID = R.drawable.help_icon;
+	private static final int FONT_ICON_ID = R.drawable.font_icon;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -46,9 +49,9 @@ public class SettingsActivity extends BaseActivity {
 		ListItem[] settingsListValues = new ListItem[4];
 		
 		settingsListValues[0] = new ListItem(MENUITEM_HOME, 0, CHECK_ICON_ID);
-		settingsListValues[1] = new ListItem(MENUITEM_SYNC, 0, SETTINGS_ICON_ID);
-		settingsListValues[2] = new ListItem(MENUITEM_FONT, 0, SETTINGS_ICON_ID);
-		settingsListValues[3] = new ListItem(MENUITEM_HELP, 0, SETTINGS_ICON_ID);
+		settingsListValues[1] = new ListItem(MENUITEM_SYNC, 0, SYNC_ICON_ID);
+		settingsListValues[2] = new ListItem(MENUITEM_FONT, 0, FONT_ICON_ID);
+		settingsListValues[3] = new ListItem(MENUITEM_HELP, 0, HELP_ICON_ID);
 		
 		NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, settingsListValues, R.layout.list_rowlayout_dark);
 		
