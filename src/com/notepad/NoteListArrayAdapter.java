@@ -13,6 +13,7 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 {
 	private Context context;
 	private ListItem[] values;
+	private int layout;
 	
 	static class ViewHolder 
 	{
@@ -22,11 +23,20 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 		
 	public NoteListArrayAdapter(Context context, ListItem[] values) 
 	{
-		
 		super(context, R.layout.list_rowlayout, values);
 		
 		this.context = context;
 	    this.values = values;
+	    this.layout = R.layout.list_rowlayout;
+	}
+	
+	public NoteListArrayAdapter(Context context, ListItem[] values, int customLayout) 
+	{
+		super(context, R.layout.list_rowlayout, values);
+		
+		this.context = context;
+	    this.values = values;
+	    this.layout = customLayout;
 	}
 	
 	public View getView(int position, View convertView, ViewGroup parent)
@@ -34,11 +44,11 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 		View rowView = convertView;
 		
 		//if there is no view to reuse
-		//then inflate the xml and create a new object
+		//then inflate the xml Layout and create a new object
 		if(rowView == null)
 		{
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			rowView = inflater.inflate(R.layout.list_rowlayout, null);
+			rowView = inflater.inflate(layout, null);
 			ViewHolder viewHolder = new ViewHolder();
 			viewHolder.textView = (TextView) rowView.findViewById(R.id.list_itemText);
 			viewHolder.imageView = (ImageView) rowView.findViewById(R.id.list_icon);
@@ -49,19 +59,11 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 
 		ListItem s = values[position];
 
-		if(!(s == null))
+		if(s != null)
 		{
 			holder.textView.setText(s.getTitle());
 			holder.imageView.setImageResource(s.getIconId());
 		}
-	    
-		//LayoutInflater inflator = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		//rowView = inflator.inflate(R.layout.list_rowlayout, parent, false);
-		//TextView textView = (TextView) rowView.findViewById(R.id.list_itemText);
-		//ImageView imageView = (ImageView) rowView.findViewById(R.id.list_icon);
-		//textView.setText(values[position]);
-		
-		//imageView.setImageResource(R.drawable.note_icon);
 		
 		return rowView;
 	}

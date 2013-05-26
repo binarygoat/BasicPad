@@ -54,54 +54,26 @@ public class MainActivity extends BaseActivity
 	public void initNoteList()
 	{
 		ListView noteListView = (ListView) findViewById(R.id.main_noteList);
-		/*
+		
 		//create the array that will contain list items
-		String[] noteListValues = new String[17];
+		ListItem[] noteListValues = new ListItem[11];
 		
 	    //temp data
 	    //the list will be populated from the database
-	    noteListValues[0] ="To Do";
-	    noteListValues[1] ="PCC";
-	    noteListValues[2] ="QFC";
-	    noteListValues[3] ="Whole Foods";
-	    noteListValues[4] ="Trader Joe's";
-	    noteListValues[5] ="Safeway";
-	    noteListValues[6] ="Target";
-	    noteListValues[7] ="Sample Note 0";
-	    noteListValues[8] ="Sample Note 1";
-	    noteListValues[9] ="Sample Note 2";
-	    noteListValues[10] ="Sample Note 3";
-	    noteListValues[11] ="Sample Note 4";
-	    noteListValues[12] ="Sample Note 5";
-	    noteListValues[13] ="Sample Note 6";
-	    noteListValues[14] ="Sample Note 7";
-	    noteListValues[15] ="Sample Note 8";
-	    noteListValues[16] ="Sample Note 9";
-	    
-	    
+	    noteListValues[0] = new ListItem("To Do", 0, NOTE_ICON_ID);
+	    noteListValues[1] = new ListItem("Sample Note 0", 0, NOTE_ICON_ID);
+	    noteListValues[2] = new ListItem("Sample Photo Note 0", 0, PHOTO_ICON_ID);
+	    noteListValues[3] = new ListItem("Sample Note 1", 0, NOTE_ICON_ID);
+	    noteListValues[4] = new ListItem("Sample Note 2", 0, NOTE_ICON_ID);
+	    noteListValues[5] = new ListItem("Sample Photo Note 1", 0, PHOTO_ICON_ID);
+	    noteListValues[6] = new ListItem("Sample Photo Note 2", 0, PHOTO_ICON_ID);
+	    noteListValues[7] = new ListItem("Sample Note 3", 0, NOTE_ICON_ID);
+	    noteListValues[8] = new ListItem("Sample Note 4", 0, NOTE_ICON_ID);
+	    noteListValues[9] = new ListItem("Sample Photo Note 3", 0, PHOTO_ICON_ID);
+	    noteListValues[10] = new ListItem("Sample Note 5", 0, NOTE_ICON_ID);
+	    	    
 	    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, noteListValues);
 	    noteListView.setAdapter(adapter);
-	    */
-		//create the array that will contain list items
-				ListItem[] noteListValues = new ListItem[11];
-				
-			    //temp data
-			    //the list will be populated from the database
-			    noteListValues[0] = new ListItem("To Do", 0, NOTE_ICON_ID);
-			    noteListValues[1] = new ListItem("Sample Note 0", 0, NOTE_ICON_ID);
-			    noteListValues[2] = new ListItem("Sample Photo Note 0", 0, PHOTO_ICON_ID);
-			    noteListValues[3] = new ListItem("Sample Note 1", 0, NOTE_ICON_ID);
-			    noteListValues[4] = new ListItem("Sample Note 2", 0, NOTE_ICON_ID);
-			    noteListValues[5] = new ListItem("Sample Photo Note 1", 0, PHOTO_ICON_ID);
-			    noteListValues[6] = new ListItem("Sample Photo Note 2", 0, PHOTO_ICON_ID);
-			    noteListValues[7] = new ListItem("Sample Note 3", 0, NOTE_ICON_ID);
-			    noteListValues[8] = new ListItem("Sample Note 4", 0, NOTE_ICON_ID);
-			    noteListValues[9] = new ListItem("Sample Photo Note 3", 0, PHOTO_ICON_ID);
-			    noteListValues[10] = new ListItem("Sample Note 5", 0, NOTE_ICON_ID);
-			    
-			    
-			    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, noteListValues);
-			    noteListView.setAdapter(adapter);
 
 		
 	    noteListView.setOnItemClickListener(new NoteListClickListener());

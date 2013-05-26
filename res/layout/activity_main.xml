@@ -18,13 +18,13 @@
         	android:text="@string/main_recentHeading"
         	style="@style/heading_dark"
             />
-    	</LinearLayout>
+   	</LinearLayout>
     <ListView
         android:id="@+id/main_noteList"
         android:layout_width="fill_parent"
     	android:layout_height="0dip"
     	android:layout_weight="1"
-    	style="@style/text_light"
+    	style="@style/list_light"
     	>
         
     </ListView>

@@ -1,9 +1,6 @@
 package com.notepad;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,12 +8,14 @@ import android.content.SharedPreferences.Editor;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class SearchActivity extends BaseActivity {
 
+	private static final int NOTE_ICON_ID = R.drawable.note_icon;
+	private static final int PHOTO_ICON_ID = R.drawable.photo_icon;
+	
 	private SharedPreferences settings;
 	
 	@Override
@@ -34,25 +33,27 @@ public class SearchActivity extends BaseActivity {
 	{
 		ListView noteListView = (ListView) findViewById(R.id.search_resultList);
 		
-	    ArrayList<String> noteListValues = new ArrayList<String>();
-	    
+		//create the array that will contain list items
+		ListItem[] noteListValues = new ListItem[11];
+		
 	    //temp data
 	    //the list will be populated from the database
-	    noteListValues .add("To Do");
-	    noteListValues .add("PCC");
-	    noteListValues .add("QFC");
-	    noteListValues .add("Whole Foods");
-	    noteListValues .add("Super Suplements");
-	    noteListValues .add("Trader Joe's");
-	    noteListValues .add("Safeway");
-	    noteListValues .add("Target");
-	    
-	    
-	    
-	    
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, noteListValues);
+	    noteListValues[0] = new ListItem("To Do", 0, NOTE_ICON_ID);
+	    noteListValues[1] = new ListItem("Sample Note 0", 0, NOTE_ICON_ID);
+	    noteListValues[2] = new ListItem("Sample Photo Note 0", 0, PHOTO_ICON_ID);
+	    noteListValues[3] = new ListItem("Sample Note 1", 0, NOTE_ICON_ID);
+	    noteListValues[4] = new ListItem("Sample Note 2", 0, NOTE_ICON_ID);
+	    noteListValues[5] = new ListItem("Sample Photo Note 1", 0, PHOTO_ICON_ID);
+	    noteListValues[6] = new ListItem("Sample Photo Note 2", 0, PHOTO_ICON_ID);
+	    noteListValues[7] = new ListItem("Sample Note 3", 0, NOTE_ICON_ID);
+	    noteListValues[8] = new ListItem("Sample Note 4", 0, NOTE_ICON_ID);
+	    noteListValues[9] = new ListItem("Sample Photo Note 3", 0, PHOTO_ICON_ID);
+	    noteListValues[10] = new ListItem("Sample Note 5", 0, NOTE_ICON_ID);
+	    	    
+	    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, noteListValues);
 	    noteListView.setAdapter(adapter);
 
+		
 	    noteListView.setOnItemClickListener(new NoteListClickListener());
 	    
 	}
@@ -63,11 +64,19 @@ public class SearchActivity extends BaseActivity {
 		public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
 		{
 			//set the current note title to settings
-			String selected = (String) parent.getItemAtPosition(position);
-			setCurrentNoteToPrefs(selected);
+			ListItem selected = (ListItem) parent.getItemAtPosition(position);
+			setCurrentNoteToPrefs(selected.toString());
 			
-			//switch to the note editor activity
-			startActivity(new Intent(SearchActivity.this, EditActivity.class));	
+			if(selected.getIconId() == NOTE_ICON_ID)
+			{
+				//switch to the note editor activity
+				startActivity(new Intent(SearchActivity.this, EditActivity.class));
+			}
+			else if(selected.getIconId() == PHOTO_ICON_ID)
+			{
+				//switch to the Photo activity
+				startActivity(new Intent(SearchActivity.this, PhotoActivity.class));
+			}
 		}
 		
 	}

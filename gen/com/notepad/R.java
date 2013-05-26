@@ -47,10 +47,11 @@ public final class R {
         public static final int icon_green=0x7f020003;
         public static final int new_icon=0x7f020004;
         public static final int new_photo_icon=0x7f020005;
-        public static final int note_icon=0x7f020006;
-        public static final int photo_icon=0x7f020007;
-        public static final int search_icon=0x7f020008;
-        public static final int settings_icon=0x7f020009;
+        public static final int new_photo_icon256=0x7f020006;
+        public static final int note_icon=0x7f020007;
+        public static final int photo_icon=0x7f020008;
+        public static final int search_icon=0x7f020009;
+        public static final int settings_icon=0x7f02000a;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0028;
@@ -105,6 +106,7 @@ public final class R {
         public static final int activity_settings=0x7f030006;
         public static final int activity_sync=0x7f030007;
         public static final int list_rowlayout=0x7f030008;
+        public static final int list_rowlayout_dark=0x7f030009;
     }
     public static final class menu {
         public static final int base_menu=0x7f090000;
