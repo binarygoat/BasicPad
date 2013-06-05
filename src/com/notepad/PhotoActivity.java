@@ -15,13 +15,14 @@ import android.graphics.Bitmap.CompressFormat;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class PhotoActivity extends BaseActivity {
 	private static final int CAMERA_REQUEST = 1;
-	
 	private SharedPreferences settings;
+	private Note currentNote;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,42 @@ public class PhotoActivity extends BaseActivity {
 		
 		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
+		getNote();
+		
 		ImageButton doneButton = (ImageButton) findViewById(R.id.photo_doneButton);
 		doneButton.setOnClickListener(new DoneButtonListener());
 		
 		Button captureButton = (Button) findViewById(R.id.photo_captureButton);
 		captureButton.setOnClickListener(new CaptureButtonListener());
 		
+		//set the title text
+		initEditText(R.id.photo_titleText, currentNote.getTitle());
 		//getPhoto();
 		
 	}
+	
+	private void getNote()
+	{
+		currentNote = new Note("Title text", 0, DatabaseHandler.TEXT_TYPE, 0);
+		
+		//SETTINGS_PREFS_CURRENT_NOTE
+		
+	}
 
+	private void initEditText(int id, String text)
+	{
+		EditText et = (EditText) findViewById(id);
+		
+		et.setText(text);
+		
+		//if the note title is set and it is not a new note
+		//if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
+		//{
+			//et.setText(settings.getString(prefKey, ""));
+		//}
+	}
+	
+	//starts the camera
 	public void getPhoto()
 	{
 		// make the intent
@@ -70,7 +97,7 @@ public class PhotoActivity extends BaseActivity {
 					
 		}
 	}
-	
+	//save the photo to the file system
 	private void savePhoto(Bitmap pic)
 	{
 		String fileName  = "temp_photo.jpg";

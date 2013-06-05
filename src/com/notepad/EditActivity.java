@@ -12,8 +12,8 @@ import android.widget.ImageButton;
 
 public class EditActivity extends BaseActivity 
 {
-
 	private SharedPreferences settings;
+	private Note currentNote;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,21 +22,41 @@ public class EditActivity extends BaseActivity
 		
 		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
-		initEditText(R.id.edit_titleText, SETTINGS_PREFS_CURRENT_NOTE);
+		getNote();
+		
+		initEditText(R.id.edit_titleText, currentNote.getTitle());
+		initEditText(R.id.edit_bodyText, currentNote.getBody());
 		
 		ImageButton doneButton = (ImageButton) findViewById(R.id.edit_doneButton);
 		doneButton.setOnClickListener(new DoneButtonListener());
 	}
 
-	public void initEditText(int id, String prefKey)
+	private void getNote()
+	{
+		//if the id is not set to 0 then load the note from the database
+		//else it is a new note
+		if(settings.getInt(SETTINGS_PREFS_CURRENT_NOTE, 0) != 0)
+		{
+			DatabaseHandler dh = new DatabaseHandler(this);
+			currentNote = dh.getTextNote(settings.getInt(SETTINGS_PREFS_CURRENT_NOTE, 0));
+		}
+		else
+		{
+			currentNote = new Note("", 0, DatabaseHandler.TEXT_TYPE, 0);
+		}
+	}
+	
+	private void initEditText(int id, String text)
 	{
 		EditText et = (EditText) findViewById(id);
 		
+		et.setText(text);
+		
 		//if the note title is set and it is not a new note
-		if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
-		{
-			et.setText(settings.getString(prefKey, ""));
-		}
+		//if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
+		//{
+			//et.setText(settings.getString(prefKey, ""));
+		//}
 	}
 	
 	private class DoneButtonListener implements View.OnClickListener 

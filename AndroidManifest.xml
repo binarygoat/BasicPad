@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.notepad"
     android:versionCode="1"
-    android:versionName="1.0" >
-
+    android:versionName="1.0" 
+    android:installLocation="auto"
+    >
+	<!-- android:installLocation="auto" allows the app to be moved to the sd card; 
+		requires the build target to be api 8, though the min target can be less -->
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="7" />

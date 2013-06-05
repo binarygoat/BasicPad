@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
+public class NoteListArrayAdapter extends ArrayAdapter<Note>
 {
 	private Context context;
-	private ListItem[] values;
+	private Note[] values;
 	private int layout;
 	
 	static class ViewHolder 
@@ -21,7 +21,7 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 	    public ImageView imageView;
 	}
 		
-	public NoteListArrayAdapter(Context context, ListItem[] values) 
+	public NoteListArrayAdapter(Context context, Note[] values) 
 	{
 		super(context, R.layout.list_rowlayout, values);
 		
@@ -30,7 +30,7 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 	    this.layout = R.layout.list_rowlayout;
 	}
 	
-	public NoteListArrayAdapter(Context context, ListItem[] values, int customLayout) 
+	public NoteListArrayAdapter(Context context, Note[] values, int customLayout) 
 	{
 		super(context, R.layout.list_rowlayout, values);
 		
@@ -57,7 +57,7 @@ public class NoteListArrayAdapter extends ArrayAdapter<ListItem>
 		
 		ViewHolder holder = (ViewHolder) rowView.getTag();
 
-		ListItem s = values[position];
+		Note s = values[position];
 
 		if(s != null)
 		{

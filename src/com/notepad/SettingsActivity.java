@@ -46,12 +46,12 @@ public class SettingsActivity extends BaseActivity {
 	{
 		ListView settingsListView = (ListView) findViewById(R.id.settings_optionsList);
 		
-		ListItem[] settingsListValues = new ListItem[4];
+		Note[] settingsListValues = new Note[4];
 		
-		settingsListValues[0] = new ListItem(MENUITEM_HOME, 0, CHECK_ICON_ID);
-		settingsListValues[1] = new ListItem(MENUITEM_SYNC, 0, SYNC_ICON_ID);
-		settingsListValues[2] = new ListItem(MENUITEM_FONT, 0, FONT_ICON_ID);
-		settingsListValues[3] = new ListItem(MENUITEM_HELP, 0, HELP_ICON_ID);
+		settingsListValues[0] = new Note(MENUITEM_HOME, 0, CHECK_ICON_ID);
+		settingsListValues[1] = new Note(MENUITEM_SYNC, 0, SYNC_ICON_ID);
+		settingsListValues[2] = new Note(MENUITEM_FONT, 0, FONT_ICON_ID);
+		settingsListValues[3] = new Note(MENUITEM_HELP, 0, HELP_ICON_ID);
 		
 		NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, settingsListValues, R.layout.list_rowlayout_dark);
 		
@@ -67,7 +67,7 @@ public class SettingsActivity extends BaseActivity {
 		public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
 		{
 			//set the current note title to settings
-			ListItem selected = (ListItem) parent.getItemAtPosition(position);
+			Note selected = (Note) parent.getItemAtPosition(position);
 			
 			
 			//switch to the appropriate activity

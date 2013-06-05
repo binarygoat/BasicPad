@@ -1,14 +1,19 @@
 package com.notepad;
 
+
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class SearchActivity extends BaseActivity {
@@ -25,31 +30,19 @@ public class SearchActivity extends BaseActivity {
 		
 		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
-		initNoteList();
+		loadNoteList("");
+		
+		EditText searchText = (EditText) findViewById(R.id.search_searchText);
+		searchText.addTextChangedListener(new SearchTextChangedListener());
 	}
 
 	//populates the ListView with recent notes
-	public void initNoteList()
+	public void loadNoteList(String s)
 	{
 		ListView noteListView = (ListView) findViewById(R.id.search_resultList);
+		DatabaseHandler dh = new DatabaseHandler(this);
+		Note[] noteListValues = dh.search(s);
 		
-		//create the array that will contain list items
-		ListItem[] noteListValues = new ListItem[11];
-		
-	    //temp data
-	    //the list will be populated from the database
-	    noteListValues[0] = new ListItem("To Do", 0, NOTE_ICON_ID);
-	    noteListValues[1] = new ListItem("Sample Note 0", 0, NOTE_ICON_ID);
-	    noteListValues[2] = new ListItem("Sample Photo Note 0", 0, PHOTO_ICON_ID);
-	    noteListValues[3] = new ListItem("Sample Note 1", 0, NOTE_ICON_ID);
-	    noteListValues[4] = new ListItem("Sample Note 2", 0, NOTE_ICON_ID);
-	    noteListValues[5] = new ListItem("Sample Photo Note 1", 0, PHOTO_ICON_ID);
-	    noteListValues[6] = new ListItem("Sample Photo Note 2", 0, PHOTO_ICON_ID);
-	    noteListValues[7] = new ListItem("Sample Note 3", 0, NOTE_ICON_ID);
-	    noteListValues[8] = new ListItem("Sample Note 4", 0, NOTE_ICON_ID);
-	    noteListValues[9] = new ListItem("Sample Photo Note 3", 0, PHOTO_ICON_ID);
-	    noteListValues[10] = new ListItem("Sample Note 5", 0, NOTE_ICON_ID);
-	    	    
 	    NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, noteListValues);
 	    noteListView.setAdapter(adapter);
 
@@ -63,32 +56,48 @@ public class SearchActivity extends BaseActivity {
 
 		public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
 		{
-			//set the current note title to settings
-			ListItem selected = (ListItem) parent.getItemAtPosition(position);
-			setCurrentNoteToPrefs(selected.toString());
+			//set the current note id to settings
+			Note selected = (Note) parent.getItemAtPosition(position);
+			setCurrentNoteToPrefs(selected.getId());
 			
-			if(selected.getIconId() == NOTE_ICON_ID)
+			
+			if(selected.getType().equals(DatabaseHandler.TEXT_TYPE))
 			{
 				//switch to the note editor activity
 				startActivity(new Intent(SearchActivity.this, EditActivity.class));
 			}
-			else if(selected.getIconId() == PHOTO_ICON_ID)
+			else if(selected.getType().equals(DatabaseHandler.PHOTO_TYPE))
 			{
 				//switch to the Photo activity
 				startActivity(new Intent(SearchActivity.this, PhotoActivity.class));
 			}
+			
 		}
 		
 	}
 	
-	//saves the title of the current note to settings
-	public void setCurrentNoteToPrefs(String noteTitle)
+	private class SearchTextChangedListener implements TextWatcher
+	{
+		public void afterTextChanged(Editable s) 
+		{
+			loadNoteList(s.toString());
+		}
+
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {}
+
+		public void onTextChanged(CharSequence s, int start, int before,
+				int count) {}
+	}
+	
+	//saves the ID of the current note to settings
+	public void setCurrentNoteToPrefs(int noteId)
 	{
 		Editor editor = settings.edit();
-		editor.putString(SETTINGS_PREFS_CURRENT_NOTE, noteTitle);
+		editor.putInt(SETTINGS_PREFS_CURRENT_NOTE, noteId);
 		editor.commit();
 	}
-		
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
