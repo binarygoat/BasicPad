@@ -9,7 +9,7 @@ package com.notepad;
 
 public final class R {
     public static final class anim {
-        public static final int scale=0x7f040000;
+        public static final int rotate=0x7f040000;
         public static final int scale_fade=0x7f040001;
         public static final int scale_fade_reverse=0x7f040002;
     }

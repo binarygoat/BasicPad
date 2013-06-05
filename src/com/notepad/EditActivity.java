@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -63,8 +65,20 @@ public class EditActivity extends BaseActivity
 	{
 		public void onClick(View sender) 
 		{
-			save();
-			startActivity(new Intent(EditActivity.this, MainActivity.class));
+			//animate the done button then return to MainActivity
+			Animator.make(EditActivity.this, R.id.edit_doneButton, R.anim.rotate, new AnimationListener(){
+				
+				public void onAnimationEnd(Animation animation) 
+				{
+					save();
+					startActivity(new Intent(EditActivity.this, MainActivity.class));
+				}
+
+				public void onAnimationRepeat(Animation animation) {}
+
+				public void onAnimationStart(Animation animation) {}
+				
+			});
 		}
 	}
 	
@@ -98,7 +112,13 @@ public class EditActivity extends BaseActivity
 		super.onBackPressed();
 	}
 
-	
+	public void onPause()
+	{
+		super.onPause();
+		
+		findViewById(R.id.edit_doneButton).clearAnimation();
+		
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);

@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity
 	//populates the ListView with recent notes
 	public void initNoteList()
 	{
-		makeAnimate(R.id.main_noteList, R.anim.scale_fade);
+		Animator.make(this, R.id.main_noteList, R.anim.scale_fade);
 		
 		ListView noteListView = (ListView) findViewById(R.id.main_noteList);
 		
@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity
 			par = parent;
 			pos = position;
 			
-			makeAnimate(R.id.main_noteList, R.anim.scale_fade_reverse, new AnimationListener(){
+			Animator.make(MainActivity.this, R.id.main_noteList, R.anim.scale_fade_reverse, new AnimationListener(){
 
 				public void onAnimationEnd(Animation animation) 
 				{
@@ -152,7 +152,7 @@ public class MainActivity extends BaseActivity
 		{
 			id = sender.getId();
 			
-			makeAnimate(id, R.anim.scale, new AnimationListener(){
+			Animator.make(MainActivity.this, id, R.anim.rotate, new AnimationListener(){
 			
 				public void onAnimationEnd(Animation animation) 
 				{
@@ -186,23 +186,6 @@ public class MainActivity extends BaseActivity
 		}
 	}
 	
-	public void makeAnimate(int viewId, int animId)
-	{
-		makeAnimate(viewId, animId, null);
-	}
-	
-	public void makeAnimate(int viewId, int animId, AnimationListener listener)
-	{
-		View view =  findViewById(viewId);
-		Animation anim = AnimationUtils.loadAnimation(this, animId);
-		view.startAnimation(anim);
-		
-		if(listener != null)
-		{
-			anim.setAnimationListener(listener);
-		}
-	}
-
 	public void onPause()
 	{
 		super.onPause();
