@@ -71,7 +71,24 @@ public class EditActivity extends BaseActivity
 	//save the note
 	public void save()
 	{
+		EditText titleET = (EditText) findViewById(R.id.edit_titleText);
+		EditText bodyET = (EditText) findViewById(R.id.edit_bodyText);
+		
+		currentNote.setTitle(titleET.getText().toString());
+		currentNote.setBody(bodyET.getText().toString());
+		
 		//update the database
+		DatabaseHandler dh = new DatabaseHandler(this);
+		
+		//if it is not a new note then update; else create
+		if(currentNote.getId() > 0)
+		{
+			dh.updateNote(currentNote);
+		}
+		else
+		{
+			dh.createNote(currentNote);
+		}
 	}
 	
 	//runs when the back button is pressed

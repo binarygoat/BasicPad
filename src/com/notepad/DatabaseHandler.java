@@ -48,8 +48,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
 						NOTE_ID + " integer primary key autoincrement," +
 						NOTE_TITLE + " text not null," +
 						NOTE_TYPE + " text not null," +
-						NOTE_CREATED + " text DEFAULT CURRENT_TIMESTAMP," +
-						NOTE_MODIFIED + " text DEFAULT CURRENT_TIMESTAMP" +
+						NOTE_CREATED + " integer not null," +
+						NOTE_MODIFIED + " integer not null" +
 					"); ";
 		
 		db.execSQL(notesTableSQL);
@@ -73,6 +73,12 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		ContentValues values = new ContentValues();
 		values.put(NOTE_TITLE, title);
 		values.put(NOTE_TYPE, type);
+
+		//get the current time and set the modified time
+		Time now = new Time();
+		now.setToNow();
+		values.put(NOTE_CREATED, now.toMillis(false));
+		values.put(NOTE_MODIFIED, now.toMillis(false));
 		
 		//insert into the database and return the id of the new row
 		int retVal = (int) db.insert(NOTES_TABLE, null, values);
@@ -90,14 +96,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		values.put(NOTE_TITLE, title);
 		values.put(NOTE_TYPE, type);
 		
-		//get the current time
-		//Time now = new Time(Time.getCurrentTimezone());
-		//now.setToNow();
-		//String dateString = now.format("YYYY-MM-DD HH:MM:SS.SSS");
-		
-		//set created and modified to the current date
-		//values.put(SQLHelper.NOTE_CREATED, dateString);
-		//values.put(SQLHelper.NOTE_MODIFIED, dateString);
+		//get the current time and set the modified time
+		Time now = new Time();
+		now.setToNow();
+		values.put(NOTE_CREATED, now.toMillis(false));
+		values.put(NOTE_MODIFIED, now.toMillis(false));
 		
 		//insert into the database and return the id of the new row
 		int noteId = (int) db.insert(NOTES_TABLE, null, values);
@@ -110,6 +113,11 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		db.close();
 		
 		return noteId;
+	}
+	
+	public int createNote(Note note)
+	{
+		return createNote(note.getTitle(), note.getBody(), note.getType());
 	}
 	
 	//returns the note from the database with the specified id
@@ -224,14 +232,26 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		return true;
 	}
 	
-	public boolean updateNote(int id)
+	public int updateNote(Note note)
 	{
 		SQLiteDatabase db = this.getWritableDatabase();
 		
+		ContentValues values = new ContentValues();
+		values.put(NOTE_TITLE, note.getTitle());
 		
+		//get the current time and set the modified time
+		Time now = new Time();
+		now.setToNow();
+		values.put(NOTE_MODIFIED, now.toMillis(false));
+		
+		ContentValues valuesBody = new ContentValues();
+		valuesBody.put(NOTE_BODY, note.getBody());
+		
+		int noteUpdate = db.update(NOTES_TABLE, values, NOTE_ID + " = ?", new String[] { String.valueOf(note.getId())});
+		int bodyUpdate = db.update(NOTE_BODIES_TABLE, valuesBody, NOTE_ID + " = ?", new String[] { String.valueOf(note.getId())});
 		
 		db.close();
-		return true;
+		return noteUpdate;
 	}
 	
 	@Override
