@@ -9,6 +9,10 @@ import android.view.animation.Animation.AnimationListener;
 
 public class Animator 
 {
+	public static final int LIST_OPEN_ANIM = R.anim.scale_fade;
+	public static final int LIST_CLOSE_ANIM = R.anim.scale_fade_reverse;
+	public static final int BUTTON_ANIM = R.anim.fade;
+	
 	public static void make(Activity act, int viewId, int animId)
 	{
 		make(act, viewId, animId, null);

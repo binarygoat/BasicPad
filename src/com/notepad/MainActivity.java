@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity
 	//populates the ListView with recent notes
 	public void initNoteList()
 	{
-		Animator.make(this, R.id.main_noteList, R.anim.scale_fade);
+		Animator.make(this, R.id.main_noteList, Animator.LIST_OPEN_ANIM);
 		
 		ListView noteListView = (ListView) findViewById(R.id.main_noteList);
 		
@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity
 			par = parent;
 			pos = position;
 			
-			Animator.make(MainActivity.this, R.id.main_noteList, R.anim.scale_fade_reverse, new AnimationListener(){
+			Animator.make(MainActivity.this, R.id.main_noteList, Animator.LIST_CLOSE_ANIM, new AnimationListener(){
 
 				public void onAnimationEnd(Animation animation) 
 				{
@@ -123,6 +123,8 @@ public class MainActivity extends BaseActivity
 						//switch to the Photo activity
 						startActivity(new Intent(MainActivity.this, PhotoActivity.class));
 					}	
+					
+					noteList.setVisibility(0);//global constant VISIBLE was giving an error
 					
 				}
 
@@ -152,7 +154,7 @@ public class MainActivity extends BaseActivity
 		{
 			id = sender.getId();
 			
-			Animator.make(MainActivity.this, id, R.anim.rotate, new AnimationListener(){
+			Animator.make(MainActivity.this, id, Animator.BUTTON_ANIM, new AnimationListener(){
 			
 				public void onAnimationEnd(Animation animation) 
 				{

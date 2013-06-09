@@ -35,12 +35,14 @@ public class EditActivity extends BaseActivity
 
 	private void getNote()
 	{
+		int currentNoteId = settings.getInt(SETTINGS_PREFS_CURRENT_NOTE, 0);
+		
 		//if the id is not set to 0 then load the note from the database
 		//else it is a new note
-		if(settings.getInt(SETTINGS_PREFS_CURRENT_NOTE, 0) != 0)
+		if(currentNoteId != 0)
 		{
 			DatabaseHandler dh = new DatabaseHandler(this);
-			currentNote = dh.getTextNote(settings.getInt(SETTINGS_PREFS_CURRENT_NOTE, 0));
+			currentNote = dh.getTextNote(currentNoteId);
 		}
 		else
 		{
@@ -53,12 +55,6 @@ public class EditActivity extends BaseActivity
 		EditText et = (EditText) findViewById(id);
 		
 		et.setText(text);
-		
-		//if the note title is set and it is not a new note
-		//if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
-		//{
-			//et.setText(settings.getString(prefKey, ""));
-		//}
 	}
 	
 	private class DoneButtonListener implements View.OnClickListener 
@@ -66,7 +62,7 @@ public class EditActivity extends BaseActivity
 		public void onClick(View sender) 
 		{
 			//animate the done button then return to MainActivity
-			Animator.make(EditActivity.this, R.id.edit_doneButton, R.anim.rotate, new AnimationListener(){
+			Animator.make(EditActivity.this, R.id.edit_doneButton, Animator.BUTTON_ANIM, new AnimationListener(){
 				
 				public void onAnimationEnd(Animation animation) 
 				{

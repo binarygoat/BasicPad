@@ -9,9 +9,10 @@ package com.notepad;
 
 public final class R {
     public static final class anim {
-        public static final int rotate=0x7f040000;
-        public static final int scale_fade=0x7f040001;
-        public static final int scale_fade_reverse=0x7f040002;
+        public static final int fade=0x7f040000;
+        public static final int rotate=0x7f040001;
+        public static final int scale_fade=0x7f040002;
+        public static final int scale_fade_reverse=0x7f040003;
     }
     public static final class array {
         public static final int font_colorArray=0x7f080001;

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class DatabaseHandler extends SQLiteOpenHelper
 {
+	private Context c;
 	
 	private static final String DATABASE_NAME = "notePad.db";
 	private static final int DATABASE_VERSION = 1;
@@ -39,6 +40,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
 	public DatabaseHandler(Context context) 
 	{
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		
+		c = context;
 	}
 
 	public void onCreate(SQLiteDatabase db) 
@@ -151,6 +154,33 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		
 	}
 	
+	//returns the note from the database with the specified id
+	public Note getPhotoNote(int id)
+	{
+		//create an error note; in case this does't work
+		Note retVal = new Note("Error retreving note", 0, DatabaseHandler.TEXT_TYPE, NOTE_ICON_ID);
+		
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		//select id, title, type, and body from the notes and body tables
+		String sqlQuery = "SELECT " + 
+				NOTE_ID + ", " + 
+				NOTE_TITLE + ", " +
+				NOTE_TYPE +
+				" FROM " + NOTES_TABLE +
+				" WHERE " + NOTE_ID + " = " + id;
+		
+		Cursor cursor = db.rawQuery(sqlQuery, null);
+		
+		if(cursor.moveToFirst())
+		{
+			retVal = new Note(cursor.getString(1), cursor.getInt(0), cursor.getString(2), PHOTO_ICON_ID);
+		}
+		
+		db.close();
+		return retVal;
+		
+	}
 
 	//returns the all notes in an array with the most recently
 	//modified first
@@ -244,11 +274,15 @@ public class DatabaseHandler extends SQLiteOpenHelper
 		now.setToNow();
 		values.put(NOTE_MODIFIED, now.toMillis(false));
 		
-		ContentValues valuesBody = new ContentValues();
-		valuesBody.put(NOTE_BODY, note.getBody());
-		
 		int noteUpdate = db.update(NOTES_TABLE, values, NOTE_ID + " = ?", new String[] { String.valueOf(note.getId())});
-		int bodyUpdate = db.update(NOTE_BODIES_TABLE, valuesBody, NOTE_ID + " = ?", new String[] { String.valueOf(note.getId())});
+		
+		if(!note.getBody().equals(""))
+		{
+			ContentValues valuesBody = new ContentValues();
+			valuesBody.put(NOTE_BODY, note.getBody());
+			
+			int bodyUpdate = db.update(NOTE_BODIES_TABLE, valuesBody, NOTE_ID + " = ?", new String[] { String.valueOf(note.getId())});
+		}
 		
 		db.close();
 		return noteUpdate;

@@ -14,6 +14,8 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -41,33 +43,56 @@ public class PhotoActivity extends BaseActivity {
 		
 		//set the title text
 		initEditText(R.id.photo_titleText, currentNote.getTitle());
-		//getPhoto();
+		
+		//if it's not a new note then load
+		if(currentNote.getId() != 0)
+		{
+			loadPhoto("" + currentNote.getId());
+		}
 		
 	}
 	
 	private void getNote()
 	{
-		currentNote = new Note("Title text", 0, DatabaseHandler.TEXT_TYPE, 0);
+		int currentNoteId = settings.getInt(SETTINGS_PREFS_CURRENT_NOTE, 0);
 		
-		//SETTINGS_PREFS_CURRENT_NOTE
+		//if the id is not set to 0 then load the note from the database
+		//else it is a new note
+		if(currentNoteId != 0)
+		{
+			DatabaseHandler dh = new DatabaseHandler(this);
+			currentNote = dh.getPhotoNote(currentNoteId);
+		}
+		else
+		{
+			currentNote = new Note("", 0, DatabaseHandler.PHOTO_TYPE, 0);
+		}
 		
 	}
 
+	private void loadPhoto(String fileName)
+	{
+		//makes a new file and gives you the path
+		Uri photoUri = Uri.fromFile(new File(this.getFilesDir(), fileName));
+		
+		//get image view
+		ImageView image = (ImageView) findViewById(R.id.photo_image);
+		
+		//set photo to ImageView
+		image.setImageURI(null);//clear the current image
+		image.setImageURI(photoUri);//set to the new image
+		
+	}
+	
 	private void initEditText(int id, String text)
 	{
 		EditText et = (EditText) findViewById(id);
 		
 		et.setText(text);
-		
-		//if the note title is set and it is not a new note
-		//if(settings.contains(prefKey) && !settings.getString(prefKey, "").equals("New Note"))
-		//{
-			//et.setText(settings.getString(prefKey, ""));
-		//}
 	}
 	
 	//starts the camera
-	public void getPhoto()
+	public void takePhoto()
 	{
 		// make the intent
 		Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -100,35 +125,40 @@ public class PhotoActivity extends BaseActivity {
 	//save the photo to the file system
 	private void savePhoto(Bitmap pic)
 	{
-		String fileName  = "temp_photo.jpg";
+		save();//save the note to the database to ensure the current note has an id
+		
+		String fileName  = "" + currentNote.getId();
 		
 		try
 		{
-			pic.compress(CompressFormat.JPEG, 75, openFileOutput(fileName, MODE_PRIVATE));
+			pic.compress(CompressFormat.JPEG, 90, openFileOutput(fileName, MODE_PRIVATE));
 		}
 		catch (Exception e)
 		{
 			return;
 		}
 		
-		//makes a new file and gives you the path
-		Uri photoUri = Uri.fromFile(new File(this.getFilesDir(), fileName));
-		
-		//get image view
-		ImageView image = (ImageView) findViewById(R.id.photo_image);
-		
-		//set photo to ImageView
-		image.setImageURI(null);//clear the current image
-		image.setImageURI(photoUri);//set to the new image
-		
+		loadPhoto(fileName);
 	}
 	
 	private class DoneButtonListener implements View.OnClickListener 
 	{
 		public void onClick(View sender) 
 		{
-			save();
-			startActivity(new Intent(PhotoActivity.this, MainActivity.class));
+			//animate the done button then return to MainActivity
+			Animator.make(PhotoActivity.this, R.id.photo_doneButton, Animator.BUTTON_ANIM, new AnimationListener(){
+				
+				public void onAnimationEnd(Animation animation) 
+				{
+					save();
+					startActivity(new Intent(PhotoActivity.this, MainActivity.class));
+				}
+
+				public void onAnimationRepeat(Animation animation) {}
+
+				public void onAnimationStart(Animation animation) {}
+				
+			});
 		}
 	}
 	
@@ -136,14 +166,31 @@ public class PhotoActivity extends BaseActivity {
 	{
 		public void onClick(View sender) 
 		{
-			getPhoto();
+			takePhoto();
 		}
 	}
 	
 	//save the note
 	public void save()
 	{
+		EditText titleET = (EditText) findViewById(R.id.photo_titleText);
+		//EditText bodyET = (EditText) findViewById(R.id.edit_bodyText);
+		
+		currentNote.setTitle(titleET.getText().toString());
+		//currentNote.setBody(bodyET.getText().toString());
+		
 		//update the database
+		DatabaseHandler dh = new DatabaseHandler(this);
+		
+		//if it is not a new note then update; else create
+		if(currentNote.getId() > 0)
+		{
+			dh.updateNote(currentNote);
+		}
+		else
+		{
+			currentNote.setId(dh.createNote(currentNote));
+		}
 	}	
 	
 	@Override
