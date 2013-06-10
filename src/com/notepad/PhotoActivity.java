@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class PhotoActivity extends BaseActivity {
 	private static final int CAMERA_REQUEST = 1;
@@ -190,6 +191,7 @@ public class PhotoActivity extends BaseActivity {
 		}
 		else
 		{
+			//create and set value of id
 			currentNote.setId(dh.createNote(currentNote));
 		}
 	}	
@@ -199,7 +201,18 @@ public class PhotoActivity extends BaseActivity {
 	public void delete()
 	{
 		//delete the current note
+		DatabaseHandler dh = new DatabaseHandler(this);
+		dh.deleteNote(currentNote.getId());
+		
+		//delete image file from file system
+		deleteFile("" + currentNote.getId());
+		
+		//notify the user that the note has been saved
+		Toast t = Toast.makeText(this, "Note Deleted", Toast.LENGTH_LONG);
+		t.show();
+		
 		//and return to the home screen
+		startActivity(new Intent(this, MainActivity.class));
 	}
 	
 	@Override

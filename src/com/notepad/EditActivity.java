@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class EditActivity extends BaseActivity 
 {
@@ -98,8 +99,12 @@ public class EditActivity extends BaseActivity
 		}
 		else
 		{
-			dh.createNote(currentNote);
+			//create and set value of id
+			currentNote.setId(dh.createNote(currentNote));
 		}
+		
+		Toast t = Toast.makeText(this, "Note Saved", Toast.LENGTH_LONG);
+		t.show();
 	}
 	
 	//delete the current note
@@ -107,7 +112,14 @@ public class EditActivity extends BaseActivity
 	public void delete()
 	{
 		//delete the current note
+		DatabaseHandler dh = new DatabaseHandler(this);
+		dh.deleteNote(currentNote.getId());
+		
+		Toast t = Toast.makeText(this, "Note Deleted", Toast.LENGTH_LONG);
+		t.show();
+		
 		//and return to the home screen
+		startActivity(new Intent(this, MainActivity.class));
 	}
 	
 	//runs when the back button is pressed

@@ -251,11 +251,17 @@ public class DatabaseHandler extends SQLiteOpenHelper
 	{
 		SQLiteDatabase db = this.getWritableDatabase();
 		
-		String sql = "DELETE FROM " + NOTES_TABLE + " WHERE " + NOTE_ID + " = " + id;
-		String sqlBody = "DELETE FROM " + NOTE_BODIES_TABLE + " WHERE " + NOTE_ID + " = " + id;
 		
-		db.rawQuery(sql, null);
-		db.rawQuery(sqlBody, null);
+		String sqlBody = "DELETE FROM " + NOTE_BODIES_TABLE + " WHERE " + NOTE_ID + " = " + id;
+		String sql = "DELETE FROM " + NOTES_TABLE + " WHERE " + NOTE_ID + " = " + id;
+		
+		//db.rawQuery(sql, null);
+		//db.rawQuery(sqlBody, null);
+		
+		db.execSQL(sqlBody);
+		db.execSQL(sql);
+		
+		//db.delete(NOTES_TABLE, whereClause, whereArgs)
 		
 		db.close();
 		
