@@ -1,30 +1,25 @@
 package com.notepad;
 
-import java.util.ArrayList;
 
 import android.os.Bundle;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TextView;
 
 public class SettingsActivity extends BaseActivity {
 
-	private SharedPreferences settings;
+	//private SharedPreferences settings;
 	
 	private static final String MENUITEM_HOME = "Return to Home screen";
 	private static final String MENUITEM_SYNC = "Sync Settings";
 	private static final String MENUITEM_FONT = "Font";
 	private static final String MENUITEM_HELP = "Help";
 	
-	private static final int SETTINGS_ICON_ID = R.drawable.settings_icon;
 	private static final int CHECK_ICON_ID = R.drawable.check_icon;
 	private static final int SYNC_ICON_ID = R.drawable.sync_icon;
 	private static final int HELP_ICON_ID = R.drawable.help_icon;
@@ -36,7 +31,7 @@ public class SettingsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		
-		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
+		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		initSettingsList();
 	}
@@ -96,10 +91,31 @@ public class SettingsActivity extends BaseActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
+		//super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.settings, menu);
+		getMenuInflater().inflate(R.menu.settings, menu);
 		return true;
 	}
 
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+		//switch based on the selected menu item
+		switch (item.getItemId()) 
+		{
+		    case R.id.settings_menuitem_home:
+		    	startActivity(new Intent(this, MainActivity.class));
+		    	break;
+		    case R.id.settings_menuitem_new:
+		    	setCurrentNoteToPrefs(0);
+		    	startActivity(new Intent(this, EditActivity.class));
+		    	break;
+		    case R.id.settings_menuitem_newPhoto:
+		    	setCurrentNoteToPrefs(0);
+		    	startActivity(new Intent(this, PhotoActivity.class));
+		    	break;
+		}
+		
+		return true;
+	}
+	
 }

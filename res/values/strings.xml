@@ -82,6 +82,9 @@
 	<string name="baseMenu_new">New</string>
 	<string name="baseMenu_newPhoto">New Photo</string>
 	
+	<!-- edit menu -->
+	<string name="editMenu_save">Save</string>
+	<string name="editMenu_delete">Delete</string>
 	
 	
 </resources>

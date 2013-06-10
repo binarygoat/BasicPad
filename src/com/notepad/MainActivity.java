@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
@@ -18,7 +19,7 @@ import android.view.animation.Animation.AnimationListener;
 
 public class MainActivity extends BaseActivity 
 {
-	private SharedPreferences settings;
+	//private SharedPreferences settings;
 	
 	
 	@Override
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
+		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		showHelp();
 		
@@ -201,10 +202,31 @@ public class MainActivity extends BaseActivity
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
+		//super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+		//switch based on the selected menu item
+		switch (item.getItemId()) 
+		{
+		    case R.id.main_menuitem_new:
+		    	setCurrentNoteToPrefs(0);
+		    	startActivity(new Intent(this, EditActivity.class));
+		    	break;
+		    case R.id.main_menuitem_newPhoto:
+		    	setCurrentNoteToPrefs(0);
+		    	startActivity(new Intent(this, PhotoActivity.class));
+		    	break;
+		    case R.id.main_menuitem_settings:
+		    	startActivity(new Intent(this, SettingsActivity.class));
+		    	break;
+		}
+		
+		return true;
+	}
+	
 }

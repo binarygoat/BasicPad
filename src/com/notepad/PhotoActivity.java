@@ -13,6 +13,7 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -23,7 +24,7 @@ import android.widget.ImageView;
 
 public class PhotoActivity extends BaseActivity {
 	private static final int CAMERA_REQUEST = 1;
-	private SharedPreferences settings;
+	//private SharedPreferences settings;
 	private Note currentNote;
 	
 	@Override
@@ -31,7 +32,7 @@ public class PhotoActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_photo);
 		
-		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
+		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		getNote();
 		
@@ -193,11 +194,50 @@ public class PhotoActivity extends BaseActivity {
 		}
 	}	
 	
+	//delete the current note
+	//and return to the home screen
+	public void delete()
+	{
+		//delete the current note
+		//and return to the home screen
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
+		//super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.photo, menu);
+		getMenuInflater().inflate(R.menu.edit, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+		//switch based on the selected menu item
+		switch (item.getItemId()) 
+		{
+		    case R.id.edit_menuitem_home:
+		    	startActivity(new Intent(this, MainActivity.class));
+		    	break;
+		    case R.id.edit_menuitem_new:
+		    	setCurrentNoteToPrefs(0);
+		    	startActivity(new Intent(this, EditActivity.class));
+		    	break;
+		    case R.id.edit_menuitem_newPhoto:
+		    	setCurrentNoteToPrefs(0);
+		    	startActivity(new Intent(this, PhotoActivity.class));
+		    	break;
+		    case R.id.edit_menuitem_settings:
+		    	startActivity(new Intent(this, SettingsActivity.class));
+		    	break;
+		    case R.id.edit_menuitem_save:
+		    	save();
+		    	break;
+		    case R.id.edit_menuitem_delete:
+		    	delete();
+		    	break;
+		    
+		}
+		
 		return true;
 	}
 

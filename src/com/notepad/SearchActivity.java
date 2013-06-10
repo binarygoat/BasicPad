@@ -9,6 +9,7 @@ import android.content.SharedPreferences.Editor;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -21,14 +22,14 @@ public class SearchActivity extends BaseActivity {
 	private static final int NOTE_ICON_ID = R.drawable.note_icon;
 	private static final int PHOTO_ICON_ID = R.drawable.photo_icon;
 	
-	private SharedPreferences settings;
+	//private SharedPreferences settings;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 		
-		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
+		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		loadNoteList("");
 		
@@ -89,21 +90,15 @@ public class SearchActivity extends BaseActivity {
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {}
 	}
-	
-	//saves the ID of the current note to settings
-	public void setCurrentNoteToPrefs(int noteId)
-	{
-		Editor editor = settings.edit();
-		editor.putInt(SETTINGS_PREFS_CURRENT_NOTE, noteId);
-		editor.commit();
-	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.search, menu);
+		//getMenuInflater().inflate(R.menu.sub_act, menu);
 		return true;
 	}
+	
+	
 
 }

@@ -1,9 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+	    android:id="@+id/settings_menuitem_new"
+	    android:title="@string/baseMenu_new"
+	    android:icon="@android:drawable/ic_menu_add"
+	    >    
+	</item>
+	
+	<item
+	    android:id="@+id/settings_menuitem_newPhoto"
+	    android:title="@string/baseMenu_newPhoto"
+	    android:icon="@android:drawable/ic_menu_camera"
+	    >
+	</item>
+	
+    <item
+	    android:id="@+id/settings_menuitem_home"
+	    android:title="@string/baseMenu_home"
+	    android:icon="@android:drawable/ic_menu_gallery"
+	    >
+	</item>
 </menu>

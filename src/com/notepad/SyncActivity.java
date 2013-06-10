@@ -1,12 +1,10 @@
 package com.notepad;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,18 +12,17 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SyncActivity extends BaseActivity {
 
-	private SharedPreferences settings;
+	//private SharedPreferences settings;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sync);
 		
-		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
+		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		initEditText(R.id.sync_email, SETTINGS_PREFS_SYNC_EMAIL);
 		initEditText(R.id.sync_password, SETTINGS_PREFS_SYNC_PASSWORD);
@@ -256,8 +253,9 @@ public class SyncActivity extends BaseActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.sync, menu);
+		//getMenuInflater().inflate(R.menu.sub_act, menu);
 		return true;
 	}
+
 
 }

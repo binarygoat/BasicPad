@@ -1,9 +1,47 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
+<item
+	    android:id="@+id/edit_menuitem_new"
+	    android:title="@string/baseMenu_new"
+	    android:icon="@android:drawable/ic_menu_add"
+	    >    
+	</item>
+	
+	<item
+	    android:id="@+id/edit_menuitem_newPhoto"
+	    android:title="@string/baseMenu_newPhoto"
+	    android:icon="@android:drawable/ic_menu_camera"
+	    >
+	</item>
+	
+	<item
+	    android:id="@+id/edit_menuitem_save"
+	    android:title="@string/editMenu_save"
+	    android:icon="@android:drawable/ic_menu_save"
+	    >
+	</item>
+	
+	<item
+	    android:id="@+id/edit_menuitem_delete"
+	    android:title="@string/editMenu_delete"
+	    android:icon="@android:drawable/ic_menu_delete"
+	    >
+	</item>
+	
+	
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+	    android:id="@+id/edit_menuitem_home"
+	    android:title="@string/baseMenu_home"
+	    android:icon="@android:drawable/ic_menu_gallery"
+	    >
+	</item>
+    
+    <item
+	    android:id="@+id/edit_menuitem_settings"
+	    android:title="@string/baseMenu_settings"
+	    android:icon="@android:drawable/ic_menu_preferences"
+	    >
+	    
+	</item>
 
 </menu>
