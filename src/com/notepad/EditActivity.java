@@ -16,15 +16,12 @@ import android.widget.Toast;
 
 public class EditActivity extends BaseActivity 
 {
-	//private SharedPreferences settings;
 	private Note currentNote;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit);
-		
-		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		getNote();
 		
@@ -101,6 +98,16 @@ public class EditActivity extends BaseActivity
 		{
 			//create and set value of id
 			currentNote.setId(dh.createNote(currentNote));
+		}
+		
+		//save to dropbox
+		try
+		{
+			saveToDbx(currentNote.getTitle(), currentNote.getBody());
+		}
+		catch(Exception e)
+		{
+			
 		}
 		
 		Toast t = Toast.makeText(this, "Note Saved", Toast.LENGTH_LONG);

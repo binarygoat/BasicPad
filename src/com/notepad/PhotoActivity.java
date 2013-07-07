@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -75,14 +77,27 @@ public class PhotoActivity extends BaseActivity {
 	private void loadPhoto(String fileName)
 	{
 		//makes a new file and gives you the path
-		Uri photoUri = Uri.fromFile(new File(this.getFilesDir(), fileName));
+		File f = new File(this.getFilesDir(), fileName);
+		Uri photoUri = Uri.fromFile(f);
 		
 		//get image view
 		ImageView image = (ImageView) findViewById(R.id.photo_image);
+		//WebView wv = (WebView) findViewById(R.id.photo_webView);
+		
+		//wv.getSettings().setBuiltInZoomControls(true);
+		
+		//set initial zoom
+		//wv.getSettings().setLoadWithOverviewMode(true);
+        //wv.getSettings().setUseWideViewPort(true);
 		
 		//set photo to ImageView
 		image.setImageURI(null);//clear the current image
 		image.setImageURI(photoUri);//set to the new image
+		
+		//String data = "<body style='background-color:black;'>" + "<img src='" + f.getAbsolutePath() + "'/></body>";
+
+		//wv.loadDataWithBaseURL("file:///android_asset/", data, "text/html", "utf-8",null);
+		//wv.reload();
 		
 	}
 	
@@ -104,6 +119,8 @@ public class PhotoActivity extends BaseActivity {
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
+		super.onActivityResult(requestCode, resultCode, data);
+		
 		//as long as you are returning from the camera // you could be returning from another request
 		if(requestCode == CAMERA_REQUEST)
 		{

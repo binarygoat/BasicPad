@@ -1,5 +1,15 @@
 package com.notepad;
 
+import java.io.IOException;
+
+import com.dropbox.sync.android.DbxAccountManager;
+import com.dropbox.sync.android.DbxException;
+import com.dropbox.sync.android.DbxException.Unauthorized;
+import com.dropbox.sync.android.DbxFile;
+import com.dropbox.sync.android.DbxFileSystem;
+import com.dropbox.sync.android.DbxPath;
+import com.dropbox.sync.android.DbxPath.InvalidPathException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +22,8 @@ import android.view.MenuItem;
 public class BaseActivity extends Activity
 {
 	protected SharedPreferences settings;
+	protected DbxAccountManager mDbxAcctMgr;
+	static final int REQUEST_LINK_TO_DBX = 0;
 	
 	public static final String SETTINGS_PREFS = "Setting Prefs";
 	public static final String SETTINGS_PREFS_CURRENT_NOTE = "Current Note";
@@ -36,8 +48,19 @@ public class BaseActivity extends Activity
 		
 		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
+		mDbxAcctMgr = DbxAccountManager.getInstance(getApplicationContext(), DbxKeys.APP_KEY, DbxKeys.APP_SECRET);
+		
+		initDropbox();
 	}
 
+	public void initDropbox()
+	{
+		if(!mDbxAcctMgr.hasLinkedAccount())
+		{
+			mDbxAcctMgr.startLink((Activity)this, REQUEST_LINK_TO_DBX);//connect to dropbox
+		}
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		
@@ -79,5 +102,40 @@ public class BaseActivity extends Activity
 		editor.putInt(SETTINGS_PREFS_CURRENT_NOTE, noteId);
 		editor.commit();
 	}
+	
+	public void onActivityResult(int requestCode, int resultCode, Intent data) 
+	{
+		//if dropbox is connected
+	    if (requestCode == REQUEST_LINK_TO_DBX) 
+	    {
+	        if (resultCode == Activity.RESULT_OK) 
+	        {
+	            // ... Start using Dropbox files.
+	        } 
+	        else 
+	        {
+	            // ... Link failed or was cancelled by the user.
+	        }            
+	    }
+	    else 
+	    {
+	        super.onActivityResult(requestCode, resultCode, data);
+	    }
+	}
 
+	public void saveToDbx(String title, String body) throws InvalidPathException, DbxException
+	{
+		DbxFileSystem dbxFs = DbxFileSystem.forAccount(mDbxAcctMgr.getLinkedAccount());
+		
+		DbxFile testFile = dbxFs.create(new DbxPath(title + ".txt"));
+		try {
+		    testFile.writeString(body);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		    testFile.close();
+		}
+	}
+	
 }
