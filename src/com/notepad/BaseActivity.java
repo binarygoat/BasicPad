@@ -22,8 +22,8 @@ import android.view.MenuItem;
 public class BaseActivity extends Activity
 {
 	protected SharedPreferences settings;
-	protected DbxAccountManager mDbxAcctMgr;
-	static final int REQUEST_LINK_TO_DBX = 0;
+	//protected DbxAccountManager mDbxAcctMgr;
+	//static final int REQUEST_LINK_TO_DBX = 0;
 	
 	public static final String SETTINGS_PREFS = "Setting Prefs";
 	public static final String SETTINGS_PREFS_CURRENT_NOTE = "Current Note";
@@ -37,22 +37,17 @@ public class BaseActivity extends Activity
 	public static final String SETTINGS_PREFS_SYNC_TEXTANDPHOTOS = "sync text and photos";
 	public static final String SETTINGS_PREFS_SYNC_AGREE = "sync agree";
 	
-	//Font settings
-	public static final String SETTINGS_PREFS_FONT_FACE = "font face";
-	public static final String SETTINGS_PREFS_FONT_COLOR = "font color";
-	public static final String SETTINGS_PREFS_FONT_SIZE = "font size";
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
-		mDbxAcctMgr = DbxAccountManager.getInstance(getApplicationContext(), DbxKeys.APP_KEY, DbxKeys.APP_SECRET);
+		//mDbxAcctMgr = DbxAccountManager.getInstance(getApplicationContext(), DbxKeys.APP_KEY, DbxKeys.APP_SECRET);
 		
-		initDropbox();
+		//initDropbox();
 	}
-
+/*
 	public void initDropbox()
 	{
 		if(!mDbxAcctMgr.hasLinkedAccount())
@@ -60,7 +55,7 @@ public class BaseActivity extends Activity
 			mDbxAcctMgr.startLink((Activity)this, REQUEST_LINK_TO_DBX);//connect to dropbox
 		}
 	}
-	
+*/	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		
@@ -105,6 +100,7 @@ public class BaseActivity extends Activity
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent data) 
 	{
+		/*
 		//if dropbox is connected
 	    if (requestCode == REQUEST_LINK_TO_DBX) 
 	    {
@@ -121,8 +117,9 @@ public class BaseActivity extends Activity
 	    {
 	        super.onActivityResult(requestCode, resultCode, data);
 	    }
+	    */
 	}
-
+/*
 	public void saveToDbx(String title, String body) throws InvalidPathException, DbxException
 	{
 		DbxFileSystem dbxFs = DbxFileSystem.forAccount(mDbxAcctMgr.getLinkedAccount());
@@ -137,5 +134,5 @@ public class BaseActivity extends Activity
 		    testFile.close();
 		}
 	}
-	
+*/
 }

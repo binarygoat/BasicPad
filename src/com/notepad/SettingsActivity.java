@@ -17,21 +17,17 @@ public class SettingsActivity extends BaseActivity {
 	
 	private static final String MENUITEM_HOME = "Return to Home screen";
 	private static final String MENUITEM_SYNC = "Sync Settings";
-	private static final String MENUITEM_FONT = "Font";
 	private static final String MENUITEM_HELP = "Help";
 	
 	private static final int CHECK_ICON_ID = R.drawable.check_icon;
 	private static final int SYNC_ICON_ID = R.drawable.sync_icon;
 	private static final int HELP_ICON_ID = R.drawable.help_icon;
-	private static final int FONT_ICON_ID = R.drawable.font_icon;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
-		
-		//settings = getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE);
 		
 		initSettingsList();
 	}
@@ -41,12 +37,11 @@ public class SettingsActivity extends BaseActivity {
 	{
 		ListView settingsListView = (ListView) findViewById(R.id.settings_optionsList);
 		
-		Note[] settingsListValues = new Note[4];
+		Note[] settingsListValues = new Note[2];
 		
 		settingsListValues[0] = new Note(MENUITEM_HOME, 0, CHECK_ICON_ID);
-		settingsListValues[1] = new Note(MENUITEM_SYNC, 0, SYNC_ICON_ID);
-		settingsListValues[2] = new Note(MENUITEM_FONT, 0, FONT_ICON_ID);
-		settingsListValues[3] = new Note(MENUITEM_HELP, 0, HELP_ICON_ID);
+		settingsListValues[1] = new Note(MENUITEM_HELP, 0, HELP_ICON_ID);
+		//settingsListValues[2] = new Note(MENUITEM_SYNC, 0, SYNC_ICON_ID);
 		
 		NoteListArrayAdapter adapter = new NoteListArrayAdapter(this, settingsListValues, R.layout.list_rowlayout_dark);
 		
@@ -73,10 +68,6 @@ public class SettingsActivity extends BaseActivity {
 			else if(selected.toString().equals(MENUITEM_SYNC))
 			{
 				startActivity(new Intent(SettingsActivity.this, SyncActivity.class));
-			}
-			else if(selected.toString().equals(MENUITEM_FONT))
-			{
-				startActivity(new Intent(SettingsActivity.this, FontActivity.class));
 			}
 			else if(selected.toString().equals(MENUITEM_HELP))
 			{

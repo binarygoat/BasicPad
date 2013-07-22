@@ -100,6 +100,7 @@ public class EditActivity extends BaseActivity
 			currentNote.setId(dh.createNote(currentNote));
 		}
 		
+		/*
 		//save to dropbox
 		try
 		{
@@ -109,6 +110,7 @@ public class EditActivity extends BaseActivity
 		{
 			
 		}
+		*/
 		
 		Toast t = Toast.makeText(this, "Note Saved", Toast.LENGTH_LONG);
 		t.show();
