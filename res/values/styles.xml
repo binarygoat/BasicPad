@@ -94,7 +94,7 @@
         <item name="android:background">@color/theme_dark_back</item>
         <item name="android:textColor">@color/theme_dark_fore</item>
         
-        <item name="android:layout_width">@dimen/button_height</item>
+        <item name="android:layout_width">@dimen/button_navWidth</item>
         <item name="android:layout_height">@dimen/button_height</item>
         
     </style>
